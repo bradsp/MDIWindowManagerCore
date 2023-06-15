@@ -554,7 +554,7 @@ Friend Class WindowManager
             Dim windowTabStrip As WindowTabStrip = GetPrimaryWindowManagerPanel().GetWrappedWindowTabStrip(wrappedWindow, True)
 
             If Not windowTabStrip Is Nothing Then
-                Return (windowTabStrip.WrappedWindows.Count = 1)
+                Return (windowTabStrip.Items.Count = 1)
             Else
                 Return False
             End If
@@ -791,7 +791,7 @@ Friend Class WindowManager
     ''' <summary>
     ''' Retrieve an array of menu items representing open windows.
     ''' </summary>
-    Public Function GetAllWindowsMenu(Optional ByVal includeTopNineAccelerators As Boolean = False) As MenuItem()
+    Public Function GetAllWindowsMenu(Optional ByVal includeTopNineAccelerators As Boolean = False) As ToolStripMenuItem()
 
         Return GetAllWindowsMenu(0, includeTopNineAccelerators)
 
@@ -800,7 +800,7 @@ Friend Class WindowManager
     ''' <summary>
     ''' Retrieve an array of menu items representing open windows.
     ''' </summary>
-    Public Function GetAllWindowsMenu(ByVal limit As Integer, Optional ByVal includeTopNineAccelerators As Boolean = False) As MenuItem()
+    Public Function GetAllWindowsMenu(ByVal limit As Integer, Optional ByVal includeTopNineAccelerators As Boolean = False) As ToolStripMenuItem()
 
         Dim menuItems() As WrappedWindowMenuItem
         Dim wrappedWindows As WrappedWindowCollection = GetAllWindows()
@@ -820,7 +820,7 @@ Friend Class WindowManager
                 Dim mnu As New WrappedWindowMenuItem
 
                 If Not activeWrappedWindow Is Nothing AndAlso activeWrappedWindow Is wrappedWindow Then
-                    mnu.RadioCheck = True
+                    mnu.CheckState = True
                     mnu.Checked = True
                 End If
 
@@ -852,7 +852,7 @@ Friend Class WindowManager
     ''' <remarks></remarks>
     Public Sub CloseAllWindows()
 
-        Dim wrappedWindows As MDIWindowManager.WrappedWindowCollection = GetAllWindows()
+        Dim wrappedWindows As WrappedWindowCollection = GetAllWindows()
 
         For count As Integer = wrappedWindows.Count - 1 To 0 Step -1
             Try

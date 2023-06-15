@@ -37,7 +37,7 @@ Friend Class DummyForm
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
-        Me.WindowManagerSplitter1 = New MDIWindowManager.WindowManagerSplitter
+        Me.WindowManagerSplitter1 = New WindowManagerSplitter
         Me.SuspendLayout()
         '
         'WindowManagerSplitter1
@@ -48,7 +48,7 @@ Friend Class DummyForm
         Me.WindowManagerSplitter1.Location = New System.Drawing.Point(0, 0)
         Me.WindowManagerSplitter1.Name = "WindowManagerSplitter1"
         Me.WindowManagerSplitter1.Size = New System.Drawing.Size(4, 205)
-        Me.WindowManagerSplitter1.Style = MDIWindowManager.WindowManagerSplitter.SplitterStyle.Vertical
+        Me.WindowManagerSplitter1.Style = WindowManagerSplitter.SplitterStyle.Vertical
         Me.WindowManagerSplitter1.TabIndex = 0
         '
         'DummyForm
@@ -65,7 +65,7 @@ Friend Class DummyForm
 
     End Sub
 
-    Friend WithEvents WindowManagerSplitter1 As MDIWindowManager.WindowManagerSplitter
+    Friend WithEvents WindowManagerSplitter1 As WindowManagerSplitter
 
 #End Region
 

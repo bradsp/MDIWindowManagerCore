@@ -1,5 +1,5 @@
 Public Class MainFormAdvanced
-    Inherits System.Windows.Forms.Form
+    Inherits Form
 
     Private Enum SampleViewMode
         Simple
@@ -9,14 +9,14 @@ Public Class MainFormAdvanced
     End Enum
 
     Private m_useWindowManager As Boolean = True
-    Friend WithEvents ViewTabStyleMenuItemSep1 As System.Windows.Forms.MenuItem
-    Friend WithEvents ViewTabStylesMoreInfoMenuItem As System.Windows.Forms.MenuItem
-    Friend WithEvents ViewShowCloseButtonMenuItem As System.Windows.Forms.MenuItem
-    Friend WithEvents ViewShowIconsMenuItem As System.Windows.Forms.MenuItem
-    Friend WithEvents ViewButtonStylesMenuItem As System.Windows.Forms.MenuItem
-    Friend WithEvents ViewButtonStylesStandardMenuItem As System.Windows.Forms.MenuItem
-    Friend WithEvents ViewButtonStylesSystemMenuItem As System.Windows.Forms.MenuItem
-    Friend WithEvents ViewButtonStylesProMenuItem As System.Windows.Forms.MenuItem
+    Friend WithEvents ViewTabStyleMenuItemSep1 As ToolStripMenuItem
+    Friend WithEvents ViewTabStylesMoreInfoMenuItem As ToolStripMenuItem
+    Friend WithEvents ViewShowCloseButtonMenuItem As ToolStripMenuItem
+    Friend WithEvents ViewShowIconsMenuItem As ToolStripMenuItem
+    Friend WithEvents ViewButtonStylesMenuItem As ToolStripMenuItem
+    Friend WithEvents ViewButtonStylesStandardMenuItem As ToolStripMenuItem
+    Friend WithEvents ViewButtonStylesSystemMenuItem As ToolStripMenuItem
+    Friend WithEvents ViewButtonStylesProMenuItem As ToolStripMenuItem
     Private m_viewMode As SampleViewMode
 
 #Region " Windows Form Designer generated code "
@@ -47,421 +47,374 @@ Public Class MainFormAdvanced
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    Friend WithEvents StatusBar1 As System.Windows.Forms.StatusBar
-    Friend WithEvents MainMenu1 As System.Windows.Forms.MainMenu
-    Friend WithEvents ToolBar1 As System.Windows.Forms.ToolBar
-    Friend WithEvents ToolBoxPanel As System.Windows.Forms.Panel
-    Friend WithEvents ImageList1 As System.Windows.Forms.ImageList
-    Friend WithEvents ToolBoxSplitter As System.Windows.Forms.Splitter
-    Friend WithEvents ToolTip1 As System.Windows.Forms.ToolTip
+    Friend WithEvents StatusBar1 As StatusStrip
+    Friend WithEvents MainMenu1 As MenuStrip
+    Friend WithEvents ToolBar1 As ToolStrip
+    Friend WithEvents ToolBoxPanel As Panel
+    Friend WithEvents ImageList1 As ImageList
+    Friend WithEvents ToolBoxSplitter As Splitter
+    Friend WithEvents ToolTip1 As ToolTip
     Friend WithEvents WindowManagerPanel1 As MDIWindowManager.WindowManagerPanel
-    Friend WithEvents FileMenuItem As System.Windows.Forms.MenuItem
-    Friend WithEvents WindowMenuItem As System.Windows.Forms.MenuItem
-    Friend WithEvents FileNewMenuItem As System.Windows.Forms.MenuItem
-    Friend WithEvents FileOpenMenuItem As System.Windows.Forms.MenuItem
-    Friend WithEvents FileMenuItemSep1 As System.Windows.Forms.MenuItem
-    Friend WithEvents FileExitMenuItem As System.Windows.Forms.MenuItem
-    Friend WithEvents WindowHTileMenuItem As System.Windows.Forms.MenuItem
-    Friend WithEvents WindowTileMenuItem As System.Windows.Forms.MenuItem
-    Friend WithEvents WindowPopOutMenuItem As System.Windows.Forms.MenuItem
-    Friend WithEvents WindowMenuItemSep1 As System.Windows.Forms.MenuItem
-    Friend WithEvents WindowCloseAllMenuItem As System.Windows.Forms.MenuItem
-    Friend WithEvents WindowMenuItemSep2 As System.Windows.Forms.MenuItem
-    Friend WithEvents ViewMenuItem As System.Windows.Forms.MenuItem
-    Friend WithEvents ViewSimpleMenuItem As System.Windows.Forms.MenuItem
-    Friend WithEvents ViewAdvRightMenuItem As System.Windows.Forms.MenuItem
-    Friend WithEvents ViewAdvBottomMenuItem As System.Windows.Forms.MenuItem
-    Friend WithEvents ViewAdvLeftMenuItem As System.Windows.Forms.MenuItem
-    Friend WithEvents Button1 As System.Windows.Forms.Button
-    Friend WithEvents Button4 As System.Windows.Forms.Button
-    Friend WithEvents Button3 As System.Windows.Forms.Button
-    Friend WithEvents Button2 As System.Windows.Forms.Button
-    Friend WithEvents ToolBoxLabel As System.Windows.Forms.Label
-    Friend WithEvents ViewMenuSep1 As System.Windows.Forms.MenuItem
-    Friend WithEvents ShowToolboxMenuItem As System.Windows.Forms.MenuItem
-    Friend WithEvents ToolBoxInfoLabel1 As System.Windows.Forms.Label
-    Friend WithEvents ToolBoxInfoLabel2 As System.Windows.Forms.Label
-    Friend WithEvents FileNewTButton As System.Windows.Forms.ToolBarButton
-    Friend WithEvents FileOpenTButton As System.Windows.Forms.ToolBarButton
-    Friend WithEvents WindowMoreWindowsMenuItem As System.Windows.Forms.MenuItem
-    Friend WithEvents ClassicMdiWindowMenuItem As System.Windows.Forms.MenuItem
-    Friend WithEvents ClassicMdiWindowCascadeMenuItem As System.Windows.Forms.MenuItem
-    Friend WithEvents ClassicMdiWindowTileHorizMenuItem As System.Windows.Forms.MenuItem
-    Friend WithEvents ClassicMdiWindowTileVertMenuItem As System.Windows.Forms.MenuItem
-    Friend WithEvents ViewMenuItemSep2 As System.Windows.Forms.MenuItem
-    Friend WithEvents SwitchToClassicMdiMenuItem As System.Windows.Forms.MenuItem
-    Friend WithEvents ViewShowLayoutButtonsMenuItem As System.Windows.Forms.MenuItem
-    Friend WithEvents ViewMenuSep4 As System.Windows.Forms.MenuItem
-    Friend WithEvents ViewMenuItemSep3 As System.Windows.Forms.MenuItem
-    Friend WithEvents ViewTabStylesMenuItem As System.Windows.Forms.MenuItem
-    Friend WithEvents ViewTabStylesClassicMenuItem As System.Windows.Forms.MenuItem
-    Friend WithEvents ViewTabStylesModernMenuItem As System.Windows.Forms.MenuItem
-    Friend WithEvents ViewTabStylesFlatHiliteMenuItem As System.Windows.Forms.MenuItem
-    Friend WithEvents ViewTabStylesAngledHiliteMenuItem As System.Windows.Forms.MenuItem
-    Friend WithEvents ViewAppearanceMenuItem As System.Windows.Forms.MenuItem
-    Friend WithEvents ViewShowTitleMenuItem As System.Windows.Forms.MenuItem
-    Friend WithEvents HelpMenuItem As System.Windows.Forms.MenuItem
-    Friend WithEvents HelpTopicsMenuItem As System.Windows.Forms.MenuItem
-    Friend WithEvents HelpAboutMenuItem As System.Windows.Forms.MenuItem
-    Friend WithEvents HelpMenuSep1 As System.Windows.Forms.MenuItem
+    Friend WithEvents FileMenuItem As ToolStripMenuItem
+    Friend WithEvents WindowMenuItem As ToolStripMenuItem
+    Friend WithEvents FileNewMenuItem As ToolStripMenuItem
+    Friend WithEvents FileOpenMenuItem As ToolStripMenuItem
+    Friend WithEvents FileMenuItemSep1 As ToolStripMenuItem
+    Friend WithEvents FileExitMenuItem As ToolStripMenuItem
+    Friend WithEvents WindowHTileMenuItem As ToolStripMenuItem
+    Friend WithEvents WindowTileMenuItem As ToolStripMenuItem
+    Friend WithEvents WindowPopOutMenuItem As ToolStripMenuItem
+    Friend WithEvents WindowMenuItemSep1 As ToolStripMenuItem
+    Friend WithEvents WindowCloseAllMenuItem As ToolStripMenuItem
+    Friend WithEvents WindowMenuItemSep2 As ToolStripMenuItem
+    Friend WithEvents ViewMenuItem As ToolStripMenuItem
+    Friend WithEvents ViewSimpleMenuItem As ToolStripMenuItem
+    Friend WithEvents ViewAdvRightMenuItem As ToolStripMenuItem
+    Friend WithEvents ViewAdvBottomMenuItem As ToolStripMenuItem
+    Friend WithEvents ViewAdvLeftMenuItem As ToolStripMenuItem
+    Friend WithEvents Button1 As Button
+    Friend WithEvents Button4 As Button
+    Friend WithEvents Button3 As Button
+    Friend WithEvents Button2 As Button
+    Friend WithEvents ToolBoxLabel As Label
+    Friend WithEvents ViewMenuSep1 As ToolStripMenuItem
+    Friend WithEvents ShowToolboxMenuItem As ToolStripMenuItem
+    Friend WithEvents ToolBoxInfoLabel1 As Label
+    Friend WithEvents ToolBoxInfoLabel2 As Label
+    Friend WithEvents FileNewTButton As ToolStripButton
+    Friend WithEvents FileOpenTButton As ToolStripButton
+    Friend WithEvents WindowMoreWindowsMenuItem As ToolStripMenuItem
+    Friend WithEvents ClassicMdiWindowMenuItem As ToolStripMenuItem
+    Friend WithEvents ClassicMdiWindowCascadeMenuItem As ToolStripMenuItem
+    Friend WithEvents ClassicMdiWindowTileHorizMenuItem As ToolStripMenuItem
+    Friend WithEvents ClassicMdiWindowTileVertMenuItem As ToolStripMenuItem
+    Friend WithEvents ViewMenuItemSep2 As ToolStripMenuItem
+    Friend WithEvents SwitchToClassicMdiMenuItem As ToolStripMenuItem
+    Friend WithEvents ViewShowLayoutButtonsMenuItem As ToolStripMenuItem
+    Friend WithEvents ViewMenuSep4 As ToolStripMenuItem
+    Friend WithEvents ViewMenuItemSep3 As ToolStripMenuItem
+    Friend WithEvents ViewTabStylesMenuItem As ToolStripMenuItem
+    Friend WithEvents ViewTabStylesClassicMenuItem As ToolStripMenuItem
+    Friend WithEvents ViewTabStylesModernMenuItem As ToolStripMenuItem
+    Friend WithEvents ViewTabStylesFlatHiliteMenuItem As ToolStripMenuItem
+    Friend WithEvents ViewTabStylesAngledHiliteMenuItem As ToolStripMenuItem
+    Friend WithEvents ViewAppearanceMenuItem As ToolStripMenuItem
+    Friend WithEvents ViewShowTitleMenuItem As ToolStripMenuItem
+    Friend WithEvents HelpMenuItem As ToolStripMenuItem
+    Friend WithEvents HelpTopicsMenuItem As ToolStripMenuItem
+    Friend WithEvents HelpAboutMenuItem As ToolStripMenuItem
+    Friend WithEvents HelpMenuSep1 As ToolStripMenuItem
 
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(MainFormAdvanced))
-        Me.StatusBar1 = New System.Windows.Forms.StatusBar
-        Me.MainMenu1 = New System.Windows.Forms.MainMenu(Me.components)
-        Me.FileMenuItem = New System.Windows.Forms.MenuItem
-        Me.FileNewMenuItem = New System.Windows.Forms.MenuItem
-        Me.FileOpenMenuItem = New System.Windows.Forms.MenuItem
-        Me.FileMenuItemSep1 = New System.Windows.Forms.MenuItem
-        Me.FileExitMenuItem = New System.Windows.Forms.MenuItem
-        Me.ViewMenuItem = New System.Windows.Forms.MenuItem
-        Me.ViewSimpleMenuItem = New System.Windows.Forms.MenuItem
-        Me.ViewAdvRightMenuItem = New System.Windows.Forms.MenuItem
-        Me.ViewAdvBottomMenuItem = New System.Windows.Forms.MenuItem
-        Me.ViewAdvLeftMenuItem = New System.Windows.Forms.MenuItem
-        Me.ViewMenuSep1 = New System.Windows.Forms.MenuItem
-        Me.ViewAppearanceMenuItem = New System.Windows.Forms.MenuItem
-        Me.ViewTabStylesMenuItem = New System.Windows.Forms.MenuItem
-        Me.ViewTabStylesClassicMenuItem = New System.Windows.Forms.MenuItem
-        Me.ViewTabStylesModernMenuItem = New System.Windows.Forms.MenuItem
-        Me.ViewTabStylesFlatHiliteMenuItem = New System.Windows.Forms.MenuItem
-        Me.ViewTabStylesAngledHiliteMenuItem = New System.Windows.Forms.MenuItem
-        Me.ViewTabStyleMenuItemSep1 = New System.Windows.Forms.MenuItem
-        Me.ViewTabStylesMoreInfoMenuItem = New System.Windows.Forms.MenuItem
-        Me.ViewButtonStylesMenuItem = New System.Windows.Forms.MenuItem
-        Me.ViewButtonStylesStandardMenuItem = New System.Windows.Forms.MenuItem
-        Me.ViewButtonStylesSystemMenuItem = New System.Windows.Forms.MenuItem
-        Me.ViewButtonStylesProMenuItem = New System.Windows.Forms.MenuItem
-        Me.ViewMenuItemSep3 = New System.Windows.Forms.MenuItem
-        Me.ViewShowTitleMenuItem = New System.Windows.Forms.MenuItem
-        Me.ViewShowIconsMenuItem = New System.Windows.Forms.MenuItem
-        Me.ViewShowLayoutButtonsMenuItem = New System.Windows.Forms.MenuItem
-        Me.ViewShowCloseButtonMenuItem = New System.Windows.Forms.MenuItem
-        Me.ViewMenuSep4 = New System.Windows.Forms.MenuItem
-        Me.ShowToolboxMenuItem = New System.Windows.Forms.MenuItem
-        Me.ViewMenuItemSep2 = New System.Windows.Forms.MenuItem
-        Me.SwitchToClassicMdiMenuItem = New System.Windows.Forms.MenuItem
-        Me.WindowMenuItem = New System.Windows.Forms.MenuItem
-        Me.WindowHTileMenuItem = New System.Windows.Forms.MenuItem
-        Me.WindowTileMenuItem = New System.Windows.Forms.MenuItem
-        Me.WindowPopOutMenuItem = New System.Windows.Forms.MenuItem
-        Me.WindowMenuItemSep1 = New System.Windows.Forms.MenuItem
-        Me.WindowCloseAllMenuItem = New System.Windows.Forms.MenuItem
-        Me.WindowMenuItemSep2 = New System.Windows.Forms.MenuItem
-        Me.WindowMoreWindowsMenuItem = New System.Windows.Forms.MenuItem
-        Me.ClassicMdiWindowMenuItem = New System.Windows.Forms.MenuItem
-        Me.ClassicMdiWindowCascadeMenuItem = New System.Windows.Forms.MenuItem
-        Me.ClassicMdiWindowTileHorizMenuItem = New System.Windows.Forms.MenuItem
-        Me.ClassicMdiWindowTileVertMenuItem = New System.Windows.Forms.MenuItem
-        Me.HelpMenuItem = New System.Windows.Forms.MenuItem
-        Me.HelpTopicsMenuItem = New System.Windows.Forms.MenuItem
-        Me.HelpMenuSep1 = New System.Windows.Forms.MenuItem
-        Me.HelpAboutMenuItem = New System.Windows.Forms.MenuItem
-        Me.ToolBar1 = New System.Windows.Forms.ToolBar
-        Me.FileNewTButton = New System.Windows.Forms.ToolBarButton
-        Me.FileOpenTButton = New System.Windows.Forms.ToolBarButton
-        Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
-        Me.ToolBoxPanel = New System.Windows.Forms.Panel
-        Me.ToolBoxInfoLabel2 = New System.Windows.Forms.Label
-        Me.ToolBoxInfoLabel1 = New System.Windows.Forms.Label
-        Me.ToolBoxLabel = New System.Windows.Forms.Label
-        Me.Button4 = New System.Windows.Forms.Button
-        Me.Button3 = New System.Windows.Forms.Button
-        Me.Button2 = New System.Windows.Forms.Button
-        Me.Button1 = New System.Windows.Forms.Button
-        Me.ToolBoxSplitter = New System.Windows.Forms.Splitter
-        Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
+        Me.StatusBar1 = New StatusStrip
+        Me.MainMenu1 = New MenuStrip
+        Me.MainMenu1.Items.AddRange(components)
+        Me.FileMenuItem = New ToolStripMenuItem
+        Me.FileNewMenuItem = New ToolStripMenuItem
+        Me.FileOpenMenuItem = New ToolStripMenuItem
+        Me.FileMenuItemSep1 = New ToolStripMenuItem
+        Me.FileExitMenuItem = New ToolStripMenuItem
+        Me.ViewMenuItem = New ToolStripMenuItem
+        Me.ViewSimpleMenuItem = New ToolStripMenuItem
+        Me.ViewAdvRightMenuItem = New ToolStripMenuItem
+        Me.ViewAdvBottomMenuItem = New ToolStripMenuItem
+        Me.ViewAdvLeftMenuItem = New ToolStripMenuItem
+        Me.ViewMenuSep1 = New ToolStripMenuItem
+        Me.ViewAppearanceMenuItem = New ToolStripMenuItem
+        Me.ViewTabStylesMenuItem = New ToolStripMenuItem
+        Me.ViewTabStylesClassicMenuItem = New ToolStripMenuItem
+        Me.ViewTabStylesModernMenuItem = New ToolStripMenuItem
+        Me.ViewTabStylesFlatHiliteMenuItem = New ToolStripMenuItem
+        Me.ViewTabStylesAngledHiliteMenuItem = New ToolStripMenuItem
+        Me.ViewTabStyleMenuItemSep1 = New ToolStripMenuItem
+        Me.ViewTabStylesMoreInfoMenuItem = New ToolStripMenuItem
+        Me.ViewButtonStylesMenuItem = New ToolStripMenuItem
+        Me.ViewButtonStylesStandardMenuItem = New ToolStripMenuItem
+        Me.ViewButtonStylesSystemMenuItem = New ToolStripMenuItem
+        Me.ViewButtonStylesProMenuItem = New ToolStripMenuItem
+        Me.ViewMenuItemSep3 = New ToolStripMenuItem
+        Me.ViewShowTitleMenuItem = New ToolStripMenuItem
+        Me.ViewShowIconsMenuItem = New ToolStripMenuItem
+        Me.ViewShowLayoutButtonsMenuItem = New ToolStripMenuItem
+        Me.ViewShowCloseButtonMenuItem = New ToolStripMenuItem
+        Me.ViewMenuSep4 = New ToolStripMenuItem
+        Me.ShowToolboxMenuItem = New ToolStripMenuItem
+        Me.ViewMenuItemSep2 = New ToolStripMenuItem
+        Me.SwitchToClassicMdiMenuItem = New ToolStripMenuItem
+        Me.WindowMenuItem = New ToolStripMenuItem
+        Me.WindowHTileMenuItem = New ToolStripMenuItem
+        Me.WindowTileMenuItem = New ToolStripMenuItem
+        Me.WindowPopOutMenuItem = New ToolStripMenuItem
+        Me.WindowMenuItemSep1 = New ToolStripMenuItem
+        Me.WindowCloseAllMenuItem = New ToolStripMenuItem
+        Me.WindowMenuItemSep2 = New ToolStripMenuItem
+        Me.WindowMoreWindowsMenuItem = New ToolStripMenuItem
+        Me.ClassicMdiWindowMenuItem = New ToolStripMenuItem
+        Me.ClassicMdiWindowCascadeMenuItem = New ToolStripMenuItem
+        Me.ClassicMdiWindowTileHorizMenuItem = New ToolStripMenuItem
+        Me.ClassicMdiWindowTileVertMenuItem = New ToolStripMenuItem
+        Me.HelpMenuItem = New ToolStripMenuItem
+        Me.HelpTopicsMenuItem = New ToolStripMenuItem
+        Me.HelpMenuSep1 = New ToolStripMenuItem
+        Me.HelpAboutMenuItem = New ToolStripMenuItem
+        Me.ToolBar1 = New ToolStrip
+        Me.FileNewTButton = New ToolStripButton
+        Me.FileOpenTButton = New ToolStripButton
+        Me.ImageList1 = New ImageList(Me.components)
+        Me.ToolBoxPanel = New Panel
+        Me.ToolBoxInfoLabel2 = New Label
+        Me.ToolBoxInfoLabel1 = New Label
+        Me.ToolBoxLabel = New Label
+        Me.Button4 = New Button
+        Me.Button3 = New Button
+        Me.Button2 = New Button
+        Me.Button1 = New Button
+        Me.ToolBoxSplitter = New Splitter
+        Me.ToolTip1 = New ToolTip(Me.components)
         Me.WindowManagerPanel1 = New MDIWindowManager.WindowManagerPanel
         Me.ToolBoxPanel.SuspendLayout()
         Me.SuspendLayout()
         '
         'StatusBar1
         '
-        Me.StatusBar1.Location = New System.Drawing.Point(0, 457)
+        Me.StatusBar1.Location = New Point(0, 457)
         Me.StatusBar1.Name = "StatusBar1"
-        Me.StatusBar1.Size = New System.Drawing.Size(697, 16)
+        Me.StatusBar1.Size = New Size(697, 16)
         Me.StatusBar1.TabIndex = 4
         '
         'MainMenu1
         '
-        Me.MainMenu1.MenuItems.AddRange(New System.Windows.Forms.MenuItem() {Me.FileMenuItem, Me.ViewMenuItem, Me.WindowMenuItem, Me.ClassicMdiWindowMenuItem, Me.HelpMenuItem})
+        Me.MainMenu1.Items.AddRange(New ToolStripMenuItem() {Me.FileMenuItem, Me.ViewMenuItem, Me.WindowMenuItem, Me.ClassicMdiWindowMenuItem, Me.HelpMenuItem})
         '
         'FileMenuItem
         '
-        Me.FileMenuItem.Index = 0
-        Me.FileMenuItem.MenuItems.AddRange(New System.Windows.Forms.MenuItem() {Me.FileNewMenuItem, Me.FileOpenMenuItem, Me.FileMenuItemSep1, Me.FileExitMenuItem})
+        Me.FileMenuItem.DropDownItems.AddRange(New ToolStripMenuItem() {Me.FileNewMenuItem, Me.FileOpenMenuItem, Me.FileMenuItemSep1, Me.FileExitMenuItem})
         Me.FileMenuItem.Text = "&File"
         '
         'FileNewMenuItem
         '
-        Me.FileNewMenuItem.Index = 0
-        Me.FileNewMenuItem.Shortcut = System.Windows.Forms.Shortcut.CtrlN
+        Me.FileNewMenuItem.ShortcutKeys = Shortcut.CtrlN
         Me.FileNewMenuItem.Text = "&New"
         '
         'FileOpenMenuItem
         '
-        Me.FileOpenMenuItem.Index = 1
-        Me.FileOpenMenuItem.Shortcut = System.Windows.Forms.Shortcut.CtrlO
+        Me.FileOpenMenuItem.ShortcutKeys = Shortcut.CtrlO
         Me.FileOpenMenuItem.Text = "&Open..."
         '
         'FileMenuItemSep1
         '
-        Me.FileMenuItemSep1.Index = 2
         Me.FileMenuItemSep1.Text = "-"
         '
         'FileExitMenuItem
         '
-        Me.FileExitMenuItem.Index = 3
         Me.FileExitMenuItem.Text = "E&xit"
         '
         'ViewMenuItem
         '
-        Me.ViewMenuItem.Index = 1
-        Me.ViewMenuItem.MenuItems.AddRange(New System.Windows.Forms.MenuItem() {Me.ViewSimpleMenuItem, Me.ViewAdvRightMenuItem, Me.ViewAdvBottomMenuItem, Me.ViewAdvLeftMenuItem, Me.ViewMenuSep1, Me.ViewAppearanceMenuItem, Me.ViewMenuSep4, Me.ShowToolboxMenuItem, Me.ViewMenuItemSep2, Me.SwitchToClassicMdiMenuItem})
+        Me.ViewMenuItem.DropDownItems.AddRange(New ToolStripMenuItem() {Me.ViewSimpleMenuItem, Me.ViewAdvRightMenuItem, Me.ViewAdvBottomMenuItem, Me.ViewAdvLeftMenuItem, Me.ViewMenuSep1, Me.ViewAppearanceMenuItem, Me.ViewMenuSep4, Me.ShowToolboxMenuItem, Me.ViewMenuItemSep2, Me.SwitchToClassicMdiMenuItem})
         Me.ViewMenuItem.Text = "&View"
         '
         'ViewSimpleMenuItem
         '
-        Me.ViewSimpleMenuItem.Index = 0
-        Me.ViewSimpleMenuItem.RadioCheck = True
+        Me.ViewSimpleMenuItem.CheckState = True
         Me.ViewSimpleMenuItem.Text = "Simple"
         '
         'ViewAdvRightMenuItem
         '
-        Me.ViewAdvRightMenuItem.Index = 1
-        Me.ViewAdvRightMenuItem.RadioCheck = True
+        Me.ViewAdvRightMenuItem.CheckState = True
         Me.ViewAdvRightMenuItem.Text = "Advanced View (Right)"
         '
         'ViewAdvBottomMenuItem
         '
-        Me.ViewAdvBottomMenuItem.Index = 2
-        Me.ViewAdvBottomMenuItem.RadioCheck = True
+        Me.ViewAdvBottomMenuItem.CheckState = True
         Me.ViewAdvBottomMenuItem.Text = "Advanced View (Bottom)"
         '
         'ViewAdvLeftMenuItem
         '
-        Me.ViewAdvLeftMenuItem.Index = 3
-        Me.ViewAdvLeftMenuItem.RadioCheck = True
+        Me.ViewAdvLeftMenuItem.CheckState = True
         Me.ViewAdvLeftMenuItem.Text = "Advanced View (Left)"
         '
         'ViewMenuSep1
         '
-        Me.ViewMenuSep1.Index = 4
         Me.ViewMenuSep1.Text = "-"
         '
         'ViewAppearanceMenuItem
         '
-        Me.ViewAppearanceMenuItem.Index = 5
-        Me.ViewAppearanceMenuItem.MenuItems.AddRange(New System.Windows.Forms.MenuItem() {Me.ViewTabStylesMenuItem, Me.ViewButtonStylesMenuItem, Me.ViewMenuItemSep3, Me.ViewShowTitleMenuItem, Me.ViewShowIconsMenuItem, Me.ViewShowLayoutButtonsMenuItem, Me.ViewShowCloseButtonMenuItem})
+        Me.ViewAppearanceMenuItem.DropDownItems.AddRange(New ToolStripMenuItem() {Me.ViewTabStylesMenuItem, Me.ViewButtonStylesMenuItem, Me.ViewMenuItemSep3, Me.ViewShowTitleMenuItem, Me.ViewShowIconsMenuItem, Me.ViewShowLayoutButtonsMenuItem, Me.ViewShowCloseButtonMenuItem})
         Me.ViewAppearanceMenuItem.Text = "Appearance"
         '
         'ViewTabStylesMenuItem
         '
-        Me.ViewTabStylesMenuItem.Index = 0
-        Me.ViewTabStylesMenuItem.MenuItems.AddRange(New System.Windows.Forms.MenuItem() {Me.ViewTabStylesClassicMenuItem, Me.ViewTabStylesModernMenuItem, Me.ViewTabStylesFlatHiliteMenuItem, Me.ViewTabStylesAngledHiliteMenuItem, Me.ViewTabStyleMenuItemSep1, Me.ViewTabStylesMoreInfoMenuItem})
+        Me.ViewTabStylesMenuItem.DropDownItems.AddRange(New ToolStripMenuItem() {Me.ViewTabStylesClassicMenuItem, Me.ViewTabStylesModernMenuItem, Me.ViewTabStylesFlatHiliteMenuItem, Me.ViewTabStylesAngledHiliteMenuItem, Me.ViewTabStyleMenuItemSep1, Me.ViewTabStylesMoreInfoMenuItem})
         Me.ViewTabStylesMenuItem.Text = "Tab Style"
         '
         'ViewTabStylesClassicMenuItem
         '
-        Me.ViewTabStylesClassicMenuItem.Index = 0
-        Me.ViewTabStylesClassicMenuItem.RadioCheck = True
+        Me.ViewTabStylesClassicMenuItem.CheckState = True
         Me.ViewTabStylesClassicMenuItem.Text = "Classic"
         '
         'ViewTabStylesModernMenuItem
         '
-        Me.ViewTabStylesModernMenuItem.Index = 1
-        Me.ViewTabStylesModernMenuItem.RadioCheck = True
+        Me.ViewTabStylesModernMenuItem.CheckState = True
         Me.ViewTabStylesModernMenuItem.Text = "Modern"
         '
         'ViewTabStylesFlatHiliteMenuItem
         '
-        Me.ViewTabStylesFlatHiliteMenuItem.Index = 2
-        Me.ViewTabStylesFlatHiliteMenuItem.RadioCheck = True
+        Me.ViewTabStylesFlatHiliteMenuItem.CheckState = True
         Me.ViewTabStylesFlatHiliteMenuItem.Text = "FlatHilite"
         '
         'ViewTabStylesAngledHiliteMenuItem
         '
-        Me.ViewTabStylesAngledHiliteMenuItem.Index = 3
-        Me.ViewTabStylesAngledHiliteMenuItem.RadioCheck = True
+        Me.ViewTabStylesAngledHiliteMenuItem.CheckState = True
         Me.ViewTabStylesAngledHiliteMenuItem.Text = "AngledHilite"
         '
         'ViewTabStyleMenuItemSep1
         '
-        Me.ViewTabStyleMenuItemSep1.Index = 4
         Me.ViewTabStyleMenuItemSep1.Text = "-"
         '
         'ViewTabStylesMoreInfoMenuItem
         '
-        Me.ViewTabStylesMoreInfoMenuItem.Index = 5
         Me.ViewTabStylesMoreInfoMenuItem.Text = "More info..."
         '
         'ViewButtonStylesMenuItem
         '
-        Me.ViewButtonStylesMenuItem.Index = 1
-        Me.ViewButtonStylesMenuItem.MenuItems.AddRange(New System.Windows.Forms.MenuItem() {Me.ViewButtonStylesStandardMenuItem, Me.ViewButtonStylesSystemMenuItem, Me.ViewButtonStylesProMenuItem})
+        Me.ViewButtonStylesMenuItem.DropDownItems.AddRange(New ToolStripMenuItem() {Me.ViewButtonStylesStandardMenuItem, Me.ViewButtonStylesSystemMenuItem, Me.ViewButtonStylesProMenuItem})
         Me.ViewButtonStylesMenuItem.Text = "Button Style"
         '
         'ViewButtonStylesStandardMenuItem
         '
-        Me.ViewButtonStylesStandardMenuItem.Index = 0
-        Me.ViewButtonStylesStandardMenuItem.RadioCheck = True
+        Me.ViewButtonStylesStandardMenuItem.CheckState = True
         Me.ViewButtonStylesStandardMenuItem.Text = "Standard"
         '
         'ViewButtonStylesSystemMenuItem
         '
-        Me.ViewButtonStylesSystemMenuItem.Index = 1
-        Me.ViewButtonStylesSystemMenuItem.RadioCheck = True
+        Me.ViewButtonStylesSystemMenuItem.CheckState = True
         Me.ViewButtonStylesSystemMenuItem.Text = "System"
         '
         'ViewButtonStylesProMenuItem
         '
-        Me.ViewButtonStylesProMenuItem.Index = 2
-        Me.ViewButtonStylesProMenuItem.RadioCheck = True
+        Me.ViewButtonStylesProMenuItem.CheckState = True
         Me.ViewButtonStylesProMenuItem.Text = "Professional"
         '
         'ViewMenuItemSep3
         '
-        Me.ViewMenuItemSep3.Index = 2
         Me.ViewMenuItemSep3.Text = "-"
         '
         'ViewShowTitleMenuItem
         '
-        Me.ViewShowTitleMenuItem.Index = 3
         Me.ViewShowTitleMenuItem.Text = "Show Title"
         '
         'ViewShowIconsMenuItem
         '
-        Me.ViewShowIconsMenuItem.Index = 4
         Me.ViewShowIconsMenuItem.Text = "Show Icons"
         '
         'ViewShowLayoutButtonsMenuItem
         '
-        Me.ViewShowLayoutButtonsMenuItem.Index = 5
         Me.ViewShowLayoutButtonsMenuItem.Text = "Show Window Layout Buttons"
         '
         'ViewShowCloseButtonMenuItem
         '
-        Me.ViewShowCloseButtonMenuItem.Index = 6
         Me.ViewShowCloseButtonMenuItem.Text = "Show Close Button"
         '
         'ViewMenuSep4
         '
-        Me.ViewMenuSep4.Index = 6
         Me.ViewMenuSep4.Text = "-"
         '
         'ShowToolboxMenuItem
         '
-        Me.ShowToolboxMenuItem.Index = 7
         Me.ShowToolboxMenuItem.Text = "Show Toolbox"
         '
         'ViewMenuItemSep2
         '
-        Me.ViewMenuItemSep2.Index = 8
         Me.ViewMenuItemSep2.Text = "-"
         '
         'SwitchToClassicMdiMenuItem
         '
-        Me.SwitchToClassicMdiMenuItem.Index = 9
         Me.SwitchToClassicMdiMenuItem.Text = "Switch to Classic MDI"
         '
         'WindowMenuItem
         '
-        Me.WindowMenuItem.Index = 2
-        Me.WindowMenuItem.MenuItems.AddRange(New System.Windows.Forms.MenuItem() {Me.WindowHTileMenuItem, Me.WindowTileMenuItem, Me.WindowPopOutMenuItem, Me.WindowMenuItemSep1, Me.WindowCloseAllMenuItem, Me.WindowMenuItemSep2, Me.WindowMoreWindowsMenuItem})
+        Me.WindowMenuItem.DropDownItems.AddRange(New ToolStripMenuItem() {Me.WindowHTileMenuItem, Me.WindowTileMenuItem, Me.WindowPopOutMenuItem, Me.WindowMenuItemSep1, Me.WindowCloseAllMenuItem, Me.WindowMenuItemSep2, Me.WindowMoreWindowsMenuItem})
         Me.WindowMenuItem.Text = "&Window"
         '
         'WindowHTileMenuItem
         '
-        Me.WindowHTileMenuItem.Index = 0
         Me.WindowHTileMenuItem.Text = "New &Horizontal Tab Group"
         '
         'WindowTileMenuItem
         '
-        Me.WindowTileMenuItem.Index = 1
         Me.WindowTileMenuItem.Text = "&Tile or Untile Current Window"
         '
         'WindowPopOutMenuItem
         '
-        Me.WindowPopOutMenuItem.Index = 2
         Me.WindowPopOutMenuItem.Text = "&Pop Out Current Window"
         '
         'WindowMenuItemSep1
         '
-        Me.WindowMenuItemSep1.Index = 3
         Me.WindowMenuItemSep1.Text = "-"
         '
         'WindowCloseAllMenuItem
         '
-        Me.WindowCloseAllMenuItem.Index = 4
         Me.WindowCloseAllMenuItem.Text = "Close A&ll"
         '
         'WindowMenuItemSep2
         '
-        Me.WindowMenuItemSep2.Index = 5
         Me.WindowMenuItemSep2.Text = "-"
         '
         'WindowMoreWindowsMenuItem
         '
-        Me.WindowMoreWindowsMenuItem.Index = 6
         Me.WindowMoreWindowsMenuItem.Text = "&Windows..."
         '
         'ClassicMdiWindowMenuItem
         '
-        Me.ClassicMdiWindowMenuItem.Index = 3
-        Me.ClassicMdiWindowMenuItem.MdiList = True
-        Me.ClassicMdiWindowMenuItem.MenuItems.AddRange(New System.Windows.Forms.MenuItem() {Me.ClassicMdiWindowCascadeMenuItem, Me.ClassicMdiWindowTileHorizMenuItem, Me.ClassicMdiWindowTileVertMenuItem})
+        'Me.ClassicMdiWindowMenuItem.MdiList = True
+        Me.ClassicMdiWindowMenuItem.DropDownItems.AddRange(New ToolStripMenuItem() {Me.ClassicMdiWindowCascadeMenuItem, Me.ClassicMdiWindowTileHorizMenuItem, Me.ClassicMdiWindowTileVertMenuItem})
         Me.ClassicMdiWindowMenuItem.Text = "&Window"
         '
         'ClassicMdiWindowCascadeMenuItem
         '
-        Me.ClassicMdiWindowCascadeMenuItem.Index = 0
         Me.ClassicMdiWindowCascadeMenuItem.Text = "Cascade"
         '
         'ClassicMdiWindowTileHorizMenuItem
         '
-        Me.ClassicMdiWindowTileHorizMenuItem.Index = 1
         Me.ClassicMdiWindowTileHorizMenuItem.Text = "Tile Horizontally"
         '
         'ClassicMdiWindowTileVertMenuItem
         '
-        Me.ClassicMdiWindowTileVertMenuItem.Index = 2
         Me.ClassicMdiWindowTileVertMenuItem.Text = "Tile Vertically"
         '
         'HelpMenuItem
         '
-        Me.HelpMenuItem.Index = 4
-        Me.HelpMenuItem.MenuItems.AddRange(New System.Windows.Forms.MenuItem() {Me.HelpTopicsMenuItem, Me.HelpMenuSep1, Me.HelpAboutMenuItem})
+        Me.HelpMenuItem.DropDownItems.AddRange(New ToolStripMenuItem() {Me.HelpTopicsMenuItem, Me.HelpMenuSep1, Me.HelpAboutMenuItem})
         Me.HelpMenuItem.Text = "Help"
         '
         'HelpTopicsMenuItem
         '
-        Me.HelpTopicsMenuItem.Index = 0
         Me.HelpTopicsMenuItem.Text = "Online Documentation"
         '
         'HelpMenuSep1
         '
-        Me.HelpMenuSep1.Index = 1
         Me.HelpMenuSep1.Text = "-"
         '
         'HelpAboutMenuItem
         '
-        Me.HelpAboutMenuItem.Index = 2
         Me.HelpAboutMenuItem.Text = "About MDIWindowManager Sample"
         '
         'ToolBar1
         '
-        Me.ToolBar1.Appearance = System.Windows.Forms.ToolBarAppearance.Flat
+        'Me.ToolBar1.GripStyle = 
         Me.ToolBar1.AutoSize = False
-        Me.ToolBar1.Buttons.AddRange(New System.Windows.Forms.ToolBarButton() {Me.FileNewTButton, Me.FileOpenTButton})
-        Me.ToolBar1.DropDownArrows = True
+        Me.ToolBar1.Items.AddRange(New ToolStripButton() {Me.FileNewTButton, Me.FileOpenTButton})
+        'Me.ToolBar1.DropDownArrows = True
         Me.ToolBar1.ImageList = Me.ImageList1
-        Me.ToolBar1.Location = New System.Drawing.Point(0, 0)
+        Me.ToolBar1.Location = New Point(0, 0)
         Me.ToolBar1.Name = "ToolBar1"
-        Me.ToolBar1.ShowToolTips = True
-        Me.ToolBar1.Size = New System.Drawing.Size(697, 28)
+        Me.ToolBar1.ShowItemToolTips = True
+        Me.ToolBar1.Size = New Size(697, 28)
         Me.ToolBar1.TabIndex = 8
-        Me.ToolBar1.TextAlign = System.Windows.Forms.ToolBarTextAlign.Right
+        'Me.ToolBar1.LayoutStyle = ToolBarTextAlign.Right
         '
         'FileNewTButton
         '
@@ -477,14 +430,14 @@ Public Class MainFormAdvanced
         '
         'ImageList1
         '
-        Me.ImageList1.ImageStream = CType(resources.GetObject("ImageList1.ImageStream"), System.Windows.Forms.ImageListStreamer)
-        Me.ImageList1.TransparentColor = System.Drawing.Color.Silver
+        Me.ImageList1.ImageStream = CType(resources.GetObject("ImageList1.ImageStream"), ImageListStreamer)
+        Me.ImageList1.TransparentColor = Color.Silver
         Me.ImageList1.Images.SetKeyName(0, "")
         Me.ImageList1.Images.SetKeyName(1, "")
         '
         'ToolBoxPanel
         '
-        Me.ToolBoxPanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.ToolBoxPanel.BorderStyle = BorderStyle.Fixed3D
         Me.ToolBoxPanel.Controls.Add(Me.ToolBoxInfoLabel2)
         Me.ToolBoxPanel.Controls.Add(Me.ToolBoxInfoLabel1)
         Me.ToolBoxPanel.Controls.Add(Me.ToolBoxLabel)
@@ -492,107 +445,107 @@ Public Class MainFormAdvanced
         Me.ToolBoxPanel.Controls.Add(Me.Button3)
         Me.ToolBoxPanel.Controls.Add(Me.Button2)
         Me.ToolBoxPanel.Controls.Add(Me.Button1)
-        Me.ToolBoxPanel.Dock = System.Windows.Forms.DockStyle.Left
-        Me.ToolBoxPanel.Location = New System.Drawing.Point(0, 28)
+        Me.ToolBoxPanel.Dock = DockStyle.Left
+        Me.ToolBoxPanel.Location = New Point(0, 28)
         Me.ToolBoxPanel.Name = "ToolBoxPanel"
-        Me.ToolBoxPanel.Size = New System.Drawing.Size(100, 429)
+        Me.ToolBoxPanel.Size = New Size(100, 429)
         Me.ToolBoxPanel.TabIndex = 10
         '
         'ToolBoxInfoLabel2
         '
-        Me.ToolBoxInfoLabel2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ToolBoxInfoLabel2.Location = New System.Drawing.Point(5, 291)
+        Me.ToolBoxInfoLabel2.Anchor = CType(((AnchorStyles.Top Or AnchorStyles.Left) _
+                    Or AnchorStyles.Right), AnchorStyles)
+        Me.ToolBoxInfoLabel2.Location = New Point(5, 291)
         Me.ToolBoxInfoLabel2.Name = "ToolBoxInfoLabel2"
-        Me.ToolBoxInfoLabel2.Size = New System.Drawing.Size(87, 126)
+        Me.ToolBoxInfoLabel2.Size = New Size(87, 126)
         Me.ToolBoxInfoLabel2.TabIndex = 6
-        Me.ToolBoxInfoLabel2.Text = "For instance, a toolbox like this could be used to switch the ""Axilliary Window"" " & _
+        Me.ToolBoxInfoLabel2.Text = "For instance, a toolbox like this could be used to switch the ""Axilliary Window"" " &
             "property of MDIWindowManager."
         '
         'ToolBoxInfoLabel1
         '
-        Me.ToolBoxInfoLabel1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ToolBoxInfoLabel1.Location = New System.Drawing.Point(5, 190)
+        Me.ToolBoxInfoLabel1.Anchor = CType(((AnchorStyles.Top Or AnchorStyles.Left) _
+                    Or AnchorStyles.Right), AnchorStyles)
+        Me.ToolBoxInfoLabel1.Location = New Point(5, 190)
         Me.ToolBoxInfoLabel1.Name = "ToolBoxInfoLabel1"
-        Me.ToolBoxInfoLabel1.Size = New System.Drawing.Size(87, 97)
+        Me.ToolBoxInfoLabel1.Size = New Size(87, 97)
         Me.ToolBoxInfoLabel1.TabIndex = 5
-        Me.ToolBoxInfoLabel1.Text = "This toolbox is not a feature of MDIWindowManager. It is simply a panel docked to" & _
+        Me.ToolBoxInfoLabel1.Text = "This toolbox is not a feature of MDIWindowManager. It is simply a panel docked to" &
             " the side of the MDI parent."
         '
         'ToolBoxLabel
         '
-        Me.ToolBoxLabel.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ToolBoxLabel.BackColor = System.Drawing.SystemColors.ControlDark
-        Me.ToolBoxLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.ToolBoxLabel.Location = New System.Drawing.Point(2, 2)
+        Me.ToolBoxLabel.Anchor = CType(((AnchorStyles.Top Or AnchorStyles.Left) _
+                    Or AnchorStyles.Right), AnchorStyles)
+        Me.ToolBoxLabel.BackColor = SystemColors.ControlDark
+        Me.ToolBoxLabel.ForeColor = SystemColors.ControlLightLight
+        Me.ToolBoxLabel.Location = New Point(2, 2)
         Me.ToolBoxLabel.Name = "ToolBoxLabel"
-        Me.ToolBoxLabel.Size = New System.Drawing.Size(92, 14)
+        Me.ToolBoxLabel.Size = New Size(92, 14)
         Me.ToolBoxLabel.TabIndex = 4
         Me.ToolBoxLabel.Text = "Toolbox"
         '
         'Button4
         '
-        Me.Button4.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Button4.Anchor = CType(((AnchorStyles.Top Or AnchorStyles.Left) _
+                    Or AnchorStyles.Right), AnchorStyles)
         Me.Button4.Image = Global.MDIWindowManager_Test.My.Resources.Resources.Calender_2
-        Me.Button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button4.Location = New System.Drawing.Point(8, 142)
+        Me.Button4.ImageAlign = ContentAlignment.MiddleLeft
+        Me.Button4.Location = New Point(8, 142)
         Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(104, 40)
+        Me.Button4.Size = New Size(104, 40)
         Me.Button4.TabIndex = 3
         Me.Button4.Text = "Tasks"
-        Me.Button4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.Button4.TextImageRelation = TextImageRelation.ImageBeforeText
         Me.Button4.UseVisualStyleBackColor = True
         '
         'Button3
         '
-        Me.Button3.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Button3.Anchor = CType(((AnchorStyles.Top Or AnchorStyles.Left) _
+                    Or AnchorStyles.Right), AnchorStyles)
         Me.Button3.Image = Global.MDIWindowManager_Test.My.Resources.Resources.Calender_1
-        Me.Button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button3.Location = New System.Drawing.Point(8, 102)
+        Me.Button3.ImageAlign = ContentAlignment.MiddleLeft
+        Me.Button3.Location = New Point(8, 102)
         Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(104, 40)
+        Me.Button3.Size = New Size(104, 40)
         Me.Button3.TabIndex = 2
         Me.Button3.Text = "Calendar"
-        Me.Button3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.Button3.TextImageRelation = TextImageRelation.ImageBeforeText
         Me.Button3.UseVisualStyleBackColor = True
         '
         'Button2
         '
-        Me.Button2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Button2.Anchor = CType(((AnchorStyles.Top Or AnchorStyles.Left) _
+                    Or AnchorStyles.Right), AnchorStyles)
         Me.Button2.Image = Global.MDIWindowManager_Test.My.Resources.Resources.Books_2
-        Me.Button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button2.Location = New System.Drawing.Point(8, 62)
+        Me.Button2.ImageAlign = ContentAlignment.MiddleLeft
+        Me.Button2.Location = New Point(8, 62)
         Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(104, 40)
+        Me.Button2.Size = New Size(104, 40)
         Me.Button2.TabIndex = 1
         Me.Button2.Text = "Contacts"
-        Me.Button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.Button2.TextImageRelation = TextImageRelation.ImageBeforeText
         Me.Button2.UseVisualStyleBackColor = True
         '
         'Button1
         '
-        Me.Button1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Button1.Anchor = CType(((AnchorStyles.Top Or AnchorStyles.Left) _
+                    Or AnchorStyles.Right), AnchorStyles)
         Me.Button1.Image = Global.MDIWindowManager_Test.My.Resources.Resources.LETTER
-        Me.Button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button1.Location = New System.Drawing.Point(8, 22)
+        Me.Button1.ImageAlign = ContentAlignment.MiddleLeft
+        Me.Button1.Location = New Point(8, 22)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(104, 40)
+        Me.Button1.Size = New Size(104, 40)
         Me.Button1.TabIndex = 0
         Me.Button1.Text = "Inbox"
-        Me.Button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.Button1.TextImageRelation = TextImageRelation.ImageBeforeText
         Me.Button1.UseVisualStyleBackColor = True
         '
         'ToolBoxSplitter
         '
-        Me.ToolBoxSplitter.Location = New System.Drawing.Point(100, 28)
+        Me.ToolBoxSplitter.Location = New Point(100, 28)
         Me.ToolBoxSplitter.Name = "ToolBoxSplitter"
-        Me.ToolBoxSplitter.Size = New System.Drawing.Size(4, 429)
+        Me.ToolBoxSplitter.Size = New Size(4, 429)
         Me.ToolBoxSplitter.TabIndex = 18
         Me.ToolBoxSplitter.TabStop = False
         Me.ToolTip1.SetToolTip(Me.ToolBoxSplitter, "Test Horizontal Reposition Adjustment")
@@ -615,8 +568,8 @@ Public Class MainFormAdvanced
         Me.WindowManagerPanel1.DisablePopoutAction = False
         Me.WindowManagerPanel1.DisableTileAction = False
         Me.WindowManagerPanel1.EnableTabPaintEvent = False
-        Me.WindowManagerPanel1.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.WindowManagerPanel1.Location = New System.Drawing.Point(106, 30)
+        Me.WindowManagerPanel1.ForeColor = SystemColors.ControlText
+        Me.WindowManagerPanel1.Location = New Point(106, 30)
         Me.WindowManagerPanel1.MinMode = False
         Me.WindowManagerPanel1.Name = "WindowManagerPanel1"
         Me.WindowManagerPanel1.Orientation = MDIWindowManager.WindowManagerOrientation.Top
@@ -624,18 +577,18 @@ Public Class MainFormAdvanced
         Me.WindowManagerPanel1.ShowIcons = True
         Me.WindowManagerPanel1.ShowLayoutButtons = False
         Me.WindowManagerPanel1.ShowTitle = True
-        Me.WindowManagerPanel1.Size = New System.Drawing.Size(589, 42)
+        Me.WindowManagerPanel1.Size = New Size(589, 42)
         Me.WindowManagerPanel1.Style = MDIWindowManager.TabStyle.AngledHiliteTabs
         Me.WindowManagerPanel1.TabIndex = 32
         Me.WindowManagerPanel1.TabRenderMode = MDIWindowManager.TabsProvider.Standard
         Me.WindowManagerPanel1.Text = "Open Items"
-        Me.WindowManagerPanel1.TitleBackColor = System.Drawing.SystemColors.ControlDark
-        Me.WindowManagerPanel1.TitleForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.WindowManagerPanel1.TitleBackColor = SystemColors.ControlDark
+        Me.WindowManagerPanel1.TitleForeColor = SystemColors.ControlLightLight
         '
         'MainFormAdvanced
         '
-        Me.AutoScaleBaseSize = New System.Drawing.Size(5, 13)
-        Me.ClientSize = New System.Drawing.Size(697, 473)
+        Me.AutoScaleBaseSize = New Size(5, 13)
+        Me.ClientSize = New Size(697, 473)
         Me.Controls.Add(Me.WindowManagerPanel1)
         Me.Controls.Add(Me.ToolBoxSplitter)
         Me.Controls.Add(Me.ToolBoxPanel)
@@ -643,9 +596,9 @@ Public Class MainFormAdvanced
         Me.Controls.Add(Me.ToolBar1)
         Me.IsMdiContainer = True
         Me.KeyPreview = True
-        Me.Menu = Me.MainMenu1
+        Me.MainMenuStrip = Me.MainMenu1
         Me.Name = "MainFormAdvanced"
-        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
+        Me.StartPosition = FormStartPosition.CenterScreen
         Me.Text = "MDIWindowManager Sample (Advanced)"
         Me.ToolBoxPanel.ResumeLayout(False)
         Me.ResumeLayout(False)
@@ -806,11 +759,12 @@ Public Class MainFormAdvanced
 
     End Sub
 
-    Private Sub ToolBar1_ButtonClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.ToolBarButtonClickEventArgs) Handles ToolBar1.ButtonClick
+    Private Sub ToolBar1_ButtonClick(ByVal sender As System.Object, ByVal e As ToolStripItemClickedEventArgs) Handles ToolBar1.ItemClicked
 
-        If e.Button Is FileNewTButton Then
+
+        If e.ClickedItem Is FileNewTButton Then
             DoFileNew()
-        ElseIf e.Button Is FileOpenTButton Then
+        ElseIf e.ClickedItem Is FileOpenTButton Then
             DoFileOpen()
         End If
 
@@ -822,29 +776,29 @@ Public Class MainFormAdvanced
 
     End Sub
 
-    Private Sub WindowMenuItem_Popup(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles WindowMenuItem.Popup
+    Private Sub WindowMenuItem_Popup(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles WindowMenuItem.DropDownOpened
+
 
         'We can use the features of WindowManager to load up
         'a list of all the windows.
 
         'remove all the old items from the menu
-        For index As Integer = Me.WindowMenuItem.MenuItems.Count - 1 To 0 Step -1
-            Dim mnu As MenuItem = Me.WindowMenuItem.MenuItems.Item(index)
+        For index As Integer = Me.WindowMenuItem.DropDownItems.Count - 1 To 0 Step -1
+            Dim mnu As ToolStripMenuItem = Me.WindowMenuItem.DropDownItems.Item(index)
 
             If TypeOf mnu Is MDIWindowManager.WrappedWindowMenuItem Then
-                Me.WindowMenuItem.MenuItems.Remove(mnu)
+                Me.WindowMenuItem.DropDownItems.Remove(mnu)
             End If
         Next index
 
         'get the first 9 window items and add them to the menu
-        Dim menuItems As MenuItem() = Me.WindowManagerPanel1.GetAllWindowsMenu(9, True)
+        Dim menuItems As ToolStripMenuItem() = Me.WindowManagerPanel1.GetAllWindowsMenu(9, True)
 
         If Not menuItems Is Nothing AndAlso menuItems.Length > 0 Then
-            Me.WindowMenuItem.MenuItems.AddRange(menuItems)
+            Me.WindowMenuItem.DropDownItems.AddRange(menuItems)
         End If
 
         'ensure the "more windows" menu item is positioned at the bottom of the menu
-        Me.WindowMoreWindowsMenuItem.Index = Me.WindowMenuItem.MenuItems.Count - 1
 
     End Sub
 
@@ -1007,7 +961,7 @@ Public Class MainFormAdvanced
 
     End Sub
 
-    Private Sub ViewMenuItem_Popup(ByVal sender As Object, ByVal e As System.EventArgs) Handles ViewMenuItem.Popup
+    Private Sub ViewMenuItem_Popup(ByVal sender As Object, ByVal e As System.EventArgs) Handles ViewMenuItem.DropDownOpened
 
         Me.ViewSimpleMenuItem.Enabled = m_useWindowManager
         Me.ViewAdvRightMenuItem.Enabled = m_useWindowManager

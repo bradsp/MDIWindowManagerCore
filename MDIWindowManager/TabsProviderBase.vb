@@ -172,7 +172,7 @@ Public Class TabsProviderBase
 
     End Sub
 
-    Private Sub WindowsMenu_Popup(ByVal sender As Object, ByVal e As System.EventArgs) Handles WindowsMenu.Popup
+    Private Sub WindowsMenu_Popup(ByVal sender As Object, ByVal e As System.EventArgs) Handles WindowsMenu.Opened
 
         UnloadWrappedWindowMenuItems()
 
@@ -181,7 +181,7 @@ Public Class TabsProviderBase
         For Each wrappedWindow As WrappedWindow In m_wrappedWindowItems
             Dim mnu As New WrappedWindowMenuItem
 
-            mnu.RadioCheck = True
+            mnu.CheckState = True
             mnu.WrappedWindow = wrappedWindow
             AddHandler mnu.Click, AddressOf HandleWrappedWindowMenuItemClick
 
@@ -189,7 +189,7 @@ Public Class TabsProviderBase
                 mnu.Checked = True
             End If
 
-            Me.WindowsMenu.MenuItems.Add(mnu)
+            Me.WindowsMenu.Items.Add(mnu)
             mnu.Visible = True
 
             count += 1
@@ -201,12 +201,12 @@ Public Class TabsProviderBase
 
     Private Sub UnloadWrappedWindowMenuItems()
 
-        For index As Integer = WindowsMenu.MenuItems.Count - 1 To 0 Step -1
-            Dim mnu As MenuItem = Me.WindowsMenu.MenuItems.Item(index)
+        For index As Integer = WindowsMenu.Items.Count - 1 To 0 Step -1
+            Dim mnu As ToolStripMenuItem = Me.WindowsMenu.Items.Item(index)
 
             If TypeOf mnu Is WrappedWindowMenuItem Then
                 RemoveHandler mnu.Click, AddressOf HandleWrappedWindowMenuItemClick
-                Me.WindowsMenu.MenuItems.Remove(mnu)
+                Me.WindowsMenu.Items.Remove(mnu)
                 mnu.Dispose()
             End If
         Next index

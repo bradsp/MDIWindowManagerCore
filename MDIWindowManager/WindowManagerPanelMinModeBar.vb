@@ -33,23 +33,23 @@ Friend Class WindowManagerPanelMinModeBar
     'Do not modify it using the code editor.
     Friend WithEvents MinModeButton As ButtonR
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
-        Me.MinModeButton = New MDIWindowManager.ButtonR
+        Me.MinModeButton = New ButtonR
         Me.SuspendLayout()
         '
         'MinModeButton
         '
-        Me.MinModeButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.MinModeButton.Location = New System.Drawing.Point(2, 2)
+        Me.MinModeButton.FlatStyle = FlatStyle.Popup
+        Me.MinModeButton.Location = New Point(2, 2)
         Me.MinModeButton.Name = "MinModeButton"
         Me.MinModeButton.RotatedText = ""
-        Me.MinModeButton.Size = New System.Drawing.Size(25, 98)
+        Me.MinModeButton.Size = New Size(25, 98)
         Me.MinModeButton.TabIndex = 1
         '
         'WindowManagerPanelMinModeBar
         '
         Me.Controls.Add(Me.MinModeButton)
         Me.Name = "WindowManagerPanelMinModeBar"
-        Me.Size = New System.Drawing.Size(30, 332)
+        Me.Size = New Size(30, 332)
         Me.ResumeLayout(False)
 
     End Sub

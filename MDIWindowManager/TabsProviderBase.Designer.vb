@@ -19,18 +19,18 @@ Partial Class TabsProviderBase
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.WindowsMenu = New System.Windows.Forms.ContextMenu
-        Me.WindowsNoWindowsMenuItem = New System.Windows.Forms.MenuItem
+        Me.WindowsMenu = New System.Windows.Forms.ContextMenuStrip
+        Me.WindowsNoWindowsMenuItem = New System.Windows.Forms.ToolStripMenuItem
         Me.SuspendLayout()
         '
         'WindowsMenu
         '
-        Me.WindowsMenu.MenuItems.AddRange(New System.Windows.Forms.MenuItem() {Me.WindowsNoWindowsMenuItem})
+        Me.WindowsMenu.Items.AddRange(New System.Windows.Forms.ToolStripMenuItem() {Me.WindowsNoWindowsMenuItem})
         '
         'WindowsNoWindowsMenuItem
         '
         Me.WindowsNoWindowsMenuItem.Enabled = False
-        Me.WindowsNoWindowsMenuItem.Index = 0
+        'Me.WindowsNoWindowsMenuItem.Index = 0
         Me.WindowsNoWindowsMenuItem.Text = "(No Windows)"
         '
         'WindowTabStripTabsBase
@@ -42,7 +42,7 @@ Partial Class TabsProviderBase
         Me.ResumeLayout(False)
 
     End Sub
-    Friend WithEvents WindowsMenu As System.Windows.Forms.ContextMenu
-    Friend WithEvents WindowsNoWindowsMenuItem As System.Windows.Forms.MenuItem
+    Friend WithEvents WindowsMenu As System.Windows.Forms.ContextMenuStrip
+    Friend WithEvents WindowsNoWindowsMenuItem As System.Windows.Forms.ToolStripMenuItem
 
 End Class

@@ -5,7 +5,7 @@ Imports System.Drawing
 ''' </summary>
 ''' <remarks>Used by WindowManagerPanel when in minimized mode.</remarks>
 Friend Class ButtonR
-    Inherits System.Windows.Forms.Button
+    Inherits Button
 
     Private m_rotatedText As String
 
