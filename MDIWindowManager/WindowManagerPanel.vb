@@ -9,7 +9,8 @@ Imports System.Collections.Generic
 Description("Provides Tabbed MDI management for MDI Parent windows."), _
 ToolboxBitmap(GetType(WindowManagerPanel))> _
 Public Class WindowManagerPanel
-    Inherits System.Windows.Forms.UserControl
+    Inherits ContextMenuStrip
+
 
 #Region "Events"
 
@@ -53,8 +54,8 @@ Public Class WindowManagerPanel
     Private m_isLoaded As Boolean = False
     Private m_isUnloaded As Boolean = False
     Private m_titleText As String = String.Empty
-    Private m_titleBackColor As Color = System.Drawing.SystemColors.ControlDark
-    Private m_titleForeColor As Color = System.Drawing.SystemColors.ControlLightLight
+    Private m_titleBackColor As Color = SystemColors.ControlDark
+    Private m_titleForeColor As Color = SystemColors.ControlLightLight
     Private m_style As TabStyle = TabStyle.ClassicTabs
     Private m_showIcons As Boolean = True
     Private m_orientation As WindowManagerOrientation = WindowManagerOrientation.Top
@@ -100,7 +101,7 @@ Public Class WindowManagerPanel
     'Private m_tmpOriginalForeColorCache2 As Color
 
     Private WithEvents m_nextWindowManagerPanel As WindowManagerPanel
-    Friend WithEvents FocusIndicatorPanel As System.Windows.Forms.Panel
+    Friend WithEvents FocusIndicatorPanel As Panel
     Private m_isTemporaryWindowManagerPanel As Boolean
 
     Private m_historyBack As New List(Of WrappedWindow)
@@ -151,75 +152,75 @@ Public Class WindowManagerPanel
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    Friend WithEvents ToolTip1 As System.Windows.Forms.ToolTip
+    Friend WithEvents ToolTip1 As ToolTip
     Friend WithEvents CloseWindowButton As WindowManagerButton
     Friend WithEvents PopoutWindowButton As WindowManagerButton
     Friend WithEvents TileWindowButton As WindowManagerButton
-    Friend WithEvents TabStripsContainer As System.Windows.Forms.Panel
-    Friend WithEvents WindowManagerSplitter1 As MDIWindowManager.WindowManagerSplitter
+    Friend WithEvents TabStripsContainer As Panel
+    Friend WithEvents WindowManagerSplitter1 As WindowManagerSplitter
     Friend WithEvents HTileButton As WindowManagerButton
-    Friend WithEvents WindowManagerSplitter2 As MDIWindowManager.WindowManagerSplitter
-    Friend WithEvents TitleLabelMenuGlyph As System.Windows.Forms.Label
-    Friend WithEvents TitleLabel As System.Windows.Forms.Label
-    Friend WithEvents WindowButtonsPanel As System.Windows.Forms.Panel
-    Friend WithEvents TitlePanel As System.Windows.Forms.Panel
-    Friend WithEvents WindowButtonsContextMenu As System.Windows.Forms.ContextMenu
-    Friend WithEvents WindowButtonsToggleWindowButtonsMenuItem As System.Windows.Forms.MenuItem
-    Friend WithEvents TitleContextMenu As System.Windows.Forms.ContextMenu
-    Friend WithEvents WindowContextMenu As System.Windows.Forms.ContextMenu
-    Friend WithEvents WindowHTileMenuItem As System.Windows.Forms.MenuItem
-    Friend WithEvents WindowTileWindowMenuItem As System.Windows.Forms.MenuItem
-    Friend WithEvents WindowPopoutWindowMenuItem As System.Windows.Forms.MenuItem
-    Friend WithEvents WindowMenuSep1 As System.Windows.Forms.MenuItem
-    Friend WithEvents WindowCloseMenuItem As System.Windows.Forms.MenuItem
-    Friend WithEvents TitleOptionsHTileMenuItem As System.Windows.Forms.MenuItem
-    Friend WithEvents TitleOptionsTileWindowMenuItem As System.Windows.Forms.MenuItem
-    Friend WithEvents TitleOptionsPopoutWindowMenuItem As System.Windows.Forms.MenuItem
-    Friend WithEvents TitleCloseWindowMenuItem As System.Windows.Forms.MenuItem
-    Friend WithEvents TitleMenuSep2 As System.Windows.Forms.MenuItem
-    Friend WithEvents TitleMenuSep3 As System.Windows.Forms.MenuItem
-    Friend WithEvents TitleNoWindowsMenuItem As System.Windows.Forms.MenuItem
-    Friend WithEvents TitleMinimizeMenuItem As System.Windows.Forms.MenuItem
-    Friend WithEvents TitleMenuSep1 As System.Windows.Forms.MenuItem
-    Friend WithEvents DesignerNote1Label As System.Windows.Forms.Label
-    Friend WithEvents TitleLabelBackground As System.Windows.Forms.Label
+    Friend WithEvents WindowManagerSplitter2 As WindowManagerSplitter
+    Friend WithEvents TitleLabelMenuGlyph As Label
+    Friend WithEvents TitleLabel As Label
+    Friend WithEvents WindowButtonsPanel As Panel
+    Friend WithEvents TitlePanel As Panel
+    Friend WithEvents WindowButtonsContextMenu As ContextMenuStrip
+    Friend WithEvents WindowButtonsToggleWindowButtonsMenuItem As ToolStripMenuItem
+    Friend WithEvents TitleContextMenu As ContextMenuStrip
+    Friend WithEvents WindowContextMenu As ContextMenuStrip
+    Friend WithEvents WindowHTileMenuItem As ToolStripMenuItem
+    Friend WithEvents WindowTileWindowMenuItem As ToolStripMenuItem
+    Friend WithEvents WindowPopoutWindowMenuItem As ToolStripMenuItem
+    Friend WithEvents WindowMenuSep1 As ToolStripMenuItem
+    Friend WithEvents WindowCloseMenuItem As ToolStripMenuItem
+    Friend WithEvents TitleOptionsHTileMenuItem As ToolStripMenuItem
+    Friend WithEvents TitleOptionsTileWindowMenuItem As ToolStripMenuItem
+    Friend WithEvents TitleOptionsPopoutWindowMenuItem As ToolStripMenuItem
+    Friend WithEvents TitleCloseWindowMenuItem As ToolStripMenuItem
+    Friend WithEvents TitleMenuSep2 As ToolStripMenuItem
+    Friend WithEvents TitleMenuSep3 As ToolStripMenuItem
+    Friend WithEvents TitleNoWindowsMenuItem As ToolStripMenuItem
+    Friend WithEvents TitleMinimizeMenuItem As ToolStripMenuItem
+    Friend WithEvents TitleMenuSep1 As ToolStripMenuItem
+    Friend WithEvents DesignerNote1Label As Label
+    Friend WithEvents TitleLabelBackground As Label
 
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(WindowManagerPanel))
-        Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
-        Me.DesignerNote1Label = New System.Windows.Forms.Label
-        Me.HTileButton = New MDIWindowManager.WindowManagerButton
-        Me.TileWindowButton = New MDIWindowManager.WindowManagerButton
-        Me.PopoutWindowButton = New MDIWindowManager.WindowManagerButton
-        Me.CloseWindowButton = New MDIWindowManager.WindowManagerButton
-        Me.TitleLabel = New System.Windows.Forms.Label
-        Me.TabStripsContainer = New System.Windows.Forms.Panel
-        Me.TitleContextMenu = New System.Windows.Forms.ContextMenu
-        Me.TitleMinimizeMenuItem = New System.Windows.Forms.MenuItem
-        Me.TitleMenuSep1 = New System.Windows.Forms.MenuItem
-        Me.TitleOptionsHTileMenuItem = New System.Windows.Forms.MenuItem
-        Me.TitleOptionsTileWindowMenuItem = New System.Windows.Forms.MenuItem
-        Me.TitleOptionsPopoutWindowMenuItem = New System.Windows.Forms.MenuItem
-        Me.TitleMenuSep2 = New System.Windows.Forms.MenuItem
-        Me.TitleCloseWindowMenuItem = New System.Windows.Forms.MenuItem
-        Me.TitleMenuSep3 = New System.Windows.Forms.MenuItem
-        Me.TitleNoWindowsMenuItem = New System.Windows.Forms.MenuItem
-        Me.TitleLabelMenuGlyph = New System.Windows.Forms.Label
-        Me.WindowButtonsContextMenu = New System.Windows.Forms.ContextMenu
-        Me.WindowButtonsToggleWindowButtonsMenuItem = New System.Windows.Forms.MenuItem
-        Me.WindowContextMenu = New System.Windows.Forms.ContextMenu
-        Me.WindowHTileMenuItem = New System.Windows.Forms.MenuItem
-        Me.WindowTileWindowMenuItem = New System.Windows.Forms.MenuItem
-        Me.WindowPopoutWindowMenuItem = New System.Windows.Forms.MenuItem
-        Me.WindowMenuSep1 = New System.Windows.Forms.MenuItem
-        Me.WindowCloseMenuItem = New System.Windows.Forms.MenuItem
-        Me.WindowButtonsPanel = New System.Windows.Forms.Panel
-        Me.TitlePanel = New System.Windows.Forms.Panel
-        Me.TitleLabelBackground = New System.Windows.Forms.Label
-        Me.FocusIndicatorPanel = New System.Windows.Forms.Panel
-        Me.WindowManagerSplitter2 = New MDIWindowManager.WindowManagerSplitter
-        Me.WindowManagerSplitter1 = New MDIWindowManager.WindowManagerSplitter
+        Me.components = New Container
+        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(WindowManagerPanel))
+        Me.ToolTip1 = New ToolTip(Me.components)
+        Me.DesignerNote1Label = New Label
+        Me.HTileButton = New WindowManagerButton
+        Me.TileWindowButton = New WindowManagerButton
+        Me.PopoutWindowButton = New WindowManagerButton
+        Me.CloseWindowButton = New WindowManagerButton
+        Me.TitleLabel = New Label
+        Me.TabStripsContainer = New Panel
+        Me.TitleContextMenu = New ContextMenuStrip
+        Me.TitleMinimizeMenuItem = New ToolStripMenuItem
+        Me.TitleMenuSep1 = New ToolStripMenuItem
+        Me.TitleOptionsHTileMenuItem = New ToolStripMenuItem
+        Me.TitleOptionsTileWindowMenuItem = New ToolStripMenuItem
+        Me.TitleOptionsPopoutWindowMenuItem = New ToolStripMenuItem
+        Me.TitleMenuSep2 = New ToolStripMenuItem
+        Me.TitleCloseWindowMenuItem = New ToolStripMenuItem
+        Me.TitleMenuSep3 = New ToolStripMenuItem
+        Me.TitleNoWindowsMenuItem = New ToolStripMenuItem
+        Me.TitleLabelMenuGlyph = New Label
+        Me.WindowButtonsContextMenu = New ContextMenuStrip
+        Me.WindowButtonsToggleWindowButtonsMenuItem = New ToolStripMenuItem
+        Me.WindowContextMenu = New ContextMenuStrip
+        Me.WindowHTileMenuItem = New ToolStripMenuItem
+        Me.WindowTileWindowMenuItem = New ToolStripMenuItem
+        Me.WindowPopoutWindowMenuItem = New ToolStripMenuItem
+        Me.WindowMenuSep1 = New ToolStripMenuItem
+        Me.WindowCloseMenuItem = New ToolStripMenuItem
+        Me.WindowButtonsPanel = New Panel
+        Me.TitlePanel = New Panel
+        Me.TitleLabelBackground = New Label
+        Me.FocusIndicatorPanel = New Panel
+        Me.WindowManagerSplitter2 = New WindowManagerSplitter
+        Me.WindowManagerSplitter1 = New WindowManagerSplitter
         Me.TabStripsContainer.SuspendLayout()
         Me.WindowButtonsPanel.SuspendLayout()
         Me.TitlePanel.SuspendLayout()
@@ -228,9 +229,9 @@ Public Class WindowManagerPanel
         'DesignerNote1Label
         '
         Me.DesignerNote1Label.AutoSize = True
-        Me.DesignerNote1Label.Location = New System.Drawing.Point(3, 1)
+        Me.DesignerNote1Label.Location = New Point(3, 1)
         Me.DesignerNote1Label.Name = "DesignerNote1Label"
-        Me.DesignerNote1Label.Size = New System.Drawing.Size(336, 13)
+        Me.DesignerNote1Label.Size = New Size(336, 13)
         Me.DesignerNote1Label.TabIndex = 0
         Me.DesignerNote1Label.Text = "Note: Actual position may change at runtime (see Orientation property)"
         Me.ToolTip1.SetToolTip(Me.DesignerNote1Label, "Note: Actual position may change at runtime (see Orientation property)")
@@ -238,243 +239,243 @@ Public Class WindowManagerPanel
         '
         'HTileButton
         '
-        Me.HTileButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.HTileButton.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.HTileButton.Font = New System.Drawing.Font("Marlett", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(2, Byte))
-        Me.HTileButton.Image = CType(resources.GetObject("HTileButton.Image"), System.Drawing.Image)
-        Me.HTileButton.Location = New System.Drawing.Point(1, 0)
+        Me.HTileButton.Anchor = CType((AnchorStyles.Top Or AnchorStyles.Right), AnchorStyles)
+        Me.HTileButton.BorderStyle = BorderStyle.None
+        Me.HTileButton.Font = New Font("Marlett", 8.25!, FontStyle.Regular, GraphicsUnit.Point, CType(2, Byte))
+        Me.HTileButton.Image = CType(resources.GetObject("HTileButton.Image"), Image)
+        Me.HTileButton.Location = New Point(1, 0)
         Me.HTileButton.Name = "HTileButton"
-        Me.HTileButton.RenderMode = MDIWindowManager.WindowManagerButton.WindowManagerButtonRenderMode.RollOverClassic
-        Me.HTileButton.Size = New System.Drawing.Size(20, 18)
+        Me.HTileButton.RenderMode = WindowManagerButton.WindowManagerButtonRenderMode.RollOverClassic
+        Me.HTileButton.Size = New Size(20, 18)
         Me.HTileButton.TabIndex = 0
-        Me.HTileButton.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.HTileButton.TextAlign = ContentAlignment.TopCenter
         Me.ToolTip1.SetToolTip(Me.HTileButton, "New Horizontal Tab Group")
         '
         'TileWindowButton
         '
-        Me.TileWindowButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TileWindowButton.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.TileWindowButton.Font = New System.Drawing.Font("Marlett", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(2, Byte))
-        Me.TileWindowButton.Image = CType(resources.GetObject("TileWindowButton.Image"), System.Drawing.Image)
-        Me.TileWindowButton.Location = New System.Drawing.Point(21, 0)
+        Me.TileWindowButton.Anchor = CType((AnchorStyles.Top Or AnchorStyles.Right), AnchorStyles)
+        Me.TileWindowButton.BorderStyle = BorderStyle.None
+        Me.TileWindowButton.Font = New Font("Marlett", 8.25!, FontStyle.Regular, GraphicsUnit.Point, CType(2, Byte))
+        Me.TileWindowButton.Image = CType(resources.GetObject("TileWindowButton.Image"), Image)
+        Me.TileWindowButton.Location = New Point(21, 0)
         Me.TileWindowButton.Name = "TileWindowButton"
-        Me.TileWindowButton.RenderMode = MDIWindowManager.WindowManagerButton.WindowManagerButtonRenderMode.RollOverClassic
-        Me.TileWindowButton.Size = New System.Drawing.Size(20, 18)
+        Me.TileWindowButton.RenderMode = WindowManagerButton.WindowManagerButtonRenderMode.RollOverClassic
+        Me.TileWindowButton.Size = New Size(20, 18)
         Me.TileWindowButton.TabIndex = 1
-        Me.TileWindowButton.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.TileWindowButton.TextAlign = ContentAlignment.TopCenter
         Me.ToolTip1.SetToolTip(Me.TileWindowButton, "Tile or Untile Window")
         '
         'PopoutWindowButton
         '
-        Me.PopoutWindowButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.PopoutWindowButton.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.PopoutWindowButton.Font = New System.Drawing.Font("Marlett", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(2, Byte))
-        Me.PopoutWindowButton.Image = CType(resources.GetObject("PopoutWindowButton.Image"), System.Drawing.Image)
-        Me.PopoutWindowButton.Location = New System.Drawing.Point(41, 0)
+        Me.PopoutWindowButton.Anchor = CType((AnchorStyles.Top Or AnchorStyles.Right), AnchorStyles)
+        Me.PopoutWindowButton.BorderStyle = BorderStyle.None
+        Me.PopoutWindowButton.Font = New Font("Marlett", 8.25!, FontStyle.Regular, GraphicsUnit.Point, CType(2, Byte))
+        Me.PopoutWindowButton.Image = CType(resources.GetObject("PopoutWindowButton.Image"), Image)
+        Me.PopoutWindowButton.Location = New Point(41, 0)
         Me.PopoutWindowButton.Name = "PopoutWindowButton"
-        Me.PopoutWindowButton.RenderMode = MDIWindowManager.WindowManagerButton.WindowManagerButtonRenderMode.RollOverClassic
-        Me.PopoutWindowButton.Size = New System.Drawing.Size(20, 18)
+        Me.PopoutWindowButton.RenderMode = WindowManagerButton.WindowManagerButtonRenderMode.RollOverClassic
+        Me.PopoutWindowButton.Size = New Size(20, 18)
         Me.PopoutWindowButton.TabIndex = 2
-        Me.PopoutWindowButton.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.PopoutWindowButton.TextAlign = ContentAlignment.TopCenter
         Me.ToolTip1.SetToolTip(Me.PopoutWindowButton, "Pop Out Window")
         '
         'CloseWindowButton
         '
-        Me.CloseWindowButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.CloseWindowButton.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.CloseWindowButton.Font = New System.Drawing.Font("Marlett", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(2, Byte))
-        Me.CloseWindowButton.Image = CType(resources.GetObject("CloseWindowButton.Image"), System.Drawing.Image)
-        Me.CloseWindowButton.Location = New System.Drawing.Point(61, 0)
+        Me.CloseWindowButton.Anchor = CType((AnchorStyles.Top Or AnchorStyles.Right), AnchorStyles)
+        Me.CloseWindowButton.BorderStyle = BorderStyle.None
+        Me.CloseWindowButton.Font = New Font("Marlett", 8.25!, FontStyle.Regular, GraphicsUnit.Point, CType(2, Byte))
+        Me.CloseWindowButton.Image = CType(resources.GetObject("CloseWindowButton.Image"), Image)
+        Me.CloseWindowButton.Location = New Point(61, 0)
         Me.CloseWindowButton.Name = "CloseWindowButton"
-        Me.CloseWindowButton.RenderMode = MDIWindowManager.WindowManagerButton.WindowManagerButtonRenderMode.RollOverClassic
-        Me.CloseWindowButton.Size = New System.Drawing.Size(32, 18)
+        Me.CloseWindowButton.RenderMode = WindowManagerButton.WindowManagerButtonRenderMode.RollOverClassic
+        Me.CloseWindowButton.Size = New Size(32, 18)
         Me.CloseWindowButton.TabIndex = 3
-        Me.CloseWindowButton.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.CloseWindowButton.TextAlign = ContentAlignment.TopCenter
         Me.ToolTip1.SetToolTip(Me.CloseWindowButton, "Close Window")
         '
         'TitleLabel
         '
         Me.TitleLabel.AutoSize = True
-        Me.TitleLabel.BackColor = System.Drawing.SystemColors.ControlDark
-        Me.TitleLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.TitleLabel.Location = New System.Drawing.Point(0, 0)
+        Me.TitleLabel.BackColor = SystemColors.ControlDark
+        Me.TitleLabel.ForeColor = SystemColors.ControlLightLight
+        Me.TitleLabel.Location = New Point(0, 0)
         Me.TitleLabel.Name = "TitleLabel"
-        Me.TitleLabel.Size = New System.Drawing.Size(0, 13)
+        Me.TitleLabel.Size = New Size(0, 13)
         Me.TitleLabel.TabIndex = 8
         '
         'TabStripsContainer
         '
-        Me.TabStripsContainer.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.TabStripsContainer.Anchor = CType((((AnchorStyles.Top Or AnchorStyles.Bottom) _
+                    Or AnchorStyles.Left) _
+                    Or AnchorStyles.Right), AnchorStyles)
         Me.TabStripsContainer.Controls.Add(Me.DesignerNote1Label)
-        Me.TabStripsContainer.Location = New System.Drawing.Point(4, 20)
+        Me.TabStripsContainer.Location = New Point(4, 20)
         Me.TabStripsContainer.Name = "TabStripsContainer"
-        Me.TabStripsContainer.Size = New System.Drawing.Size(340, 23)
+        Me.TabStripsContainer.Size = New Size(340, 23)
         Me.TabStripsContainer.TabIndex = 9
         '
         'TitleContextMenu
         '
-        Me.TitleContextMenu.MenuItems.AddRange(New System.Windows.Forms.MenuItem() {Me.TitleMinimizeMenuItem, Me.TitleMenuSep1, Me.TitleOptionsHTileMenuItem, Me.TitleOptionsTileWindowMenuItem, Me.TitleOptionsPopoutWindowMenuItem, Me.TitleMenuSep2, Me.TitleCloseWindowMenuItem, Me.TitleMenuSep3, Me.TitleNoWindowsMenuItem})
+        Me.TitleContextMenu.Items.AddRange(New ToolStripMenuItem() {Me.TitleMinimizeMenuItem, Me.TitleMenuSep1, Me.TitleOptionsHTileMenuItem, Me.TitleOptionsTileWindowMenuItem, Me.TitleOptionsPopoutWindowMenuItem, Me.TitleMenuSep2, Me.TitleCloseWindowMenuItem, Me.TitleMenuSep3, Me.TitleNoWindowsMenuItem})
         '
         'TitleMinimizeMenuItem
         '
-        Me.TitleMinimizeMenuItem.Index = 0
+        'Me.TitleMinimizeMenuItem.Index = 0
         Me.TitleMinimizeMenuItem.Text = "Mi&nimize"
         '
         'TitleMenuSep1
         '
-        Me.TitleMenuSep1.Index = 1
+        'Me.TitleMenuSep1.Index = 1
         Me.TitleMenuSep1.Text = "-"
         '
         'TitleOptionsHTileMenuItem
         '
-        Me.TitleOptionsHTileMenuItem.Index = 2
+        'Me.TitleOptionsHTileMenuItem.Index = 2
         Me.TitleOptionsHTileMenuItem.Text = "New &Horizontal Tab Group"
         '
         'TitleOptionsTileWindowMenuItem
         '
-        Me.TitleOptionsTileWindowMenuItem.Index = 3
+        'Me.TitleOptionsTileWindowMenuItem.Index = 3
         Me.TitleOptionsTileWindowMenuItem.Text = "&Tile or Untile Current Window"
         '
         'TitleOptionsPopoutWindowMenuItem
         '
-        Me.TitleOptionsPopoutWindowMenuItem.Index = 4
+        'Me.TitleOptionsPopoutWindowMenuItem.Index = 4
         Me.TitleOptionsPopoutWindowMenuItem.Text = "&Pop Out Current Window"
         '
         'TitleMenuSep2
         '
-        Me.TitleMenuSep2.Index = 5
+        'Me.TitleMenuSep2.Index = 5
         Me.TitleMenuSep2.Text = "-"
         '
         'TitleCloseWindowMenuItem
         '
-        Me.TitleCloseWindowMenuItem.Index = 6
+        'Me.TitleCloseWindowMenuItem.Index = 6
         Me.TitleCloseWindowMenuItem.Text = "&Close Current Window"
         '
         'TitleMenuSep3
         '
-        Me.TitleMenuSep3.Index = 7
+        'Me.TitleMenuSep3.Index = 7
         Me.TitleMenuSep3.Text = "-"
         '
         'TitleNoWindowsMenuItem
         '
         Me.TitleNoWindowsMenuItem.Enabled = False
-        Me.TitleNoWindowsMenuItem.Index = 8
+        'Me.TitleNoWindowsMenuItem.Index = 8
         Me.TitleNoWindowsMenuItem.Text = "(No Windows)"
         '
         'TitleLabelMenuGlyph
         '
-        Me.TitleLabelMenuGlyph.BackColor = System.Drawing.SystemColors.ControlDark
-        Me.TitleLabelMenuGlyph.Font = New System.Drawing.Font("Marlett", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(2, Byte))
-        Me.TitleLabelMenuGlyph.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.TitleLabelMenuGlyph.Location = New System.Drawing.Point(0, 0)
+        Me.TitleLabelMenuGlyph.BackColor = SystemColors.ControlDark
+        Me.TitleLabelMenuGlyph.Font = New Font("Marlett", 9.0!, FontStyle.Bold, GraphicsUnit.Point, CType(2, Byte))
+        Me.TitleLabelMenuGlyph.ForeColor = SystemColors.ControlLightLight
+        Me.TitleLabelMenuGlyph.Location = New Point(0, 0)
         Me.TitleLabelMenuGlyph.Name = "TitleLabelMenuGlyph"
-        Me.TitleLabelMenuGlyph.Size = New System.Drawing.Size(16, 16)
+        Me.TitleLabelMenuGlyph.Size = New Size(16, 16)
         Me.TitleLabelMenuGlyph.TabIndex = 13
         Me.TitleLabelMenuGlyph.Text = "u"
         '
         'WindowButtonsContextMenu
         '
-        Me.WindowButtonsContextMenu.MenuItems.AddRange(New System.Windows.Forms.MenuItem() {Me.WindowButtonsToggleWindowButtonsMenuItem})
+        Me.WindowButtonsContextMenu.Items.AddRange(New ToolStripMenuItem() {Me.WindowButtonsToggleWindowButtonsMenuItem})
         '
         'WindowButtonsToggleWindowButtonsMenuItem
         '
-        Me.WindowButtonsToggleWindowButtonsMenuItem.Index = 0
+        'Me.WindowButtonsToggleWindowButtonsMenuItem.Index = 0
         Me.WindowButtonsToggleWindowButtonsMenuItem.Text = "Hide Window &Buttons"
         '
         'WindowContextMenu
         '
-        Me.WindowContextMenu.MenuItems.AddRange(New System.Windows.Forms.MenuItem() {Me.WindowHTileMenuItem, Me.WindowTileWindowMenuItem, Me.WindowPopoutWindowMenuItem, Me.WindowMenuSep1, Me.WindowCloseMenuItem})
+        Me.WindowContextMenu.Items.AddRange(New ToolStripMenuItem() {Me.WindowHTileMenuItem, Me.WindowTileWindowMenuItem, Me.WindowPopoutWindowMenuItem, Me.WindowMenuSep1, Me.WindowCloseMenuItem})
         '
         'WindowHTileMenuItem
         '
-        Me.WindowHTileMenuItem.Index = 0
+        'Me.WindowHTileMenuItem.Index = 0
         Me.WindowHTileMenuItem.Text = "New &Horizontal Tab Group"
         '
         'WindowTileWindowMenuItem
         '
-        Me.WindowTileWindowMenuItem.Index = 1
+        'Me.WindowTileWindowMenuItem.Index = 1
         Me.WindowTileWindowMenuItem.Text = "&Tile or Untile"
         '
         'WindowPopoutWindowMenuItem
         '
-        Me.WindowPopoutWindowMenuItem.Index = 2
+        'Me.WindowPopoutWindowMenuItem.Index = 2
         Me.WindowPopoutWindowMenuItem.Text = "&Pop Out"
         '
         'WindowMenuSep1
         '
-        Me.WindowMenuSep1.Index = 3
+        'Me.WindowMenuSep1.Index = 3
         Me.WindowMenuSep1.Text = "-"
         '
         'WindowCloseMenuItem
         '
-        Me.WindowCloseMenuItem.Index = 4
+        'Me.WindowCloseMenuItem.Index = 4
         Me.WindowCloseMenuItem.Text = "&Close"
         '
         'WindowButtonsPanel
         '
-        Me.WindowButtonsPanel.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.WindowButtonsPanel.Anchor = CType((AnchorStyles.Top Or AnchorStyles.Right), AnchorStyles)
         Me.WindowButtonsPanel.Controls.Add(Me.HTileButton)
         Me.WindowButtonsPanel.Controls.Add(Me.TileWindowButton)
         Me.WindowButtonsPanel.Controls.Add(Me.PopoutWindowButton)
         Me.WindowButtonsPanel.Controls.Add(Me.CloseWindowButton)
-        Me.WindowButtonsPanel.Location = New System.Drawing.Point(346, 20)
+        Me.WindowButtonsPanel.Location = New Point(346, 20)
         Me.WindowButtonsPanel.Name = "WindowButtonsPanel"
-        Me.WindowButtonsPanel.Size = New System.Drawing.Size(93, 23)
+        Me.WindowButtonsPanel.Size = New Size(93, 23)
         Me.WindowButtonsPanel.TabIndex = 14
         '
         'TitlePanel
         '
-        Me.TitlePanel.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TitlePanel.BackColor = System.Drawing.SystemColors.ControlDark
+        Me.TitlePanel.Anchor = CType(((AnchorStyles.Top Or AnchorStyles.Left) _
+                    Or AnchorStyles.Right), AnchorStyles)
+        Me.TitlePanel.BackColor = SystemColors.ControlDark
         Me.TitlePanel.Controls.Add(Me.TitleLabelMenuGlyph)
         Me.TitlePanel.Controls.Add(Me.TitleLabel)
         Me.TitlePanel.Controls.Add(Me.TitleLabelBackground)
-        Me.TitlePanel.Location = New System.Drawing.Point(4, 4)
+        Me.TitlePanel.Location = New Point(4, 4)
         Me.TitlePanel.Name = "TitlePanel"
-        Me.TitlePanel.Size = New System.Drawing.Size(436, 15)
+        Me.TitlePanel.Size = New Size(436, 15)
         Me.TitlePanel.TabIndex = 15
         '
         'TitleLabelBackground
         '
-        Me.TitleLabelBackground.BackColor = System.Drawing.SystemColors.ControlDark
-        Me.TitleLabelBackground.Font = New System.Drawing.Font("Marlett", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(2, Byte))
-        Me.TitleLabelBackground.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.TitleLabelBackground.Location = New System.Drawing.Point(0, 0)
+        Me.TitleLabelBackground.BackColor = SystemColors.ControlDark
+        Me.TitleLabelBackground.Font = New Font("Marlett", 9.0!, FontStyle.Bold, GraphicsUnit.Point, CType(2, Byte))
+        Me.TitleLabelBackground.ForeColor = SystemColors.ControlLightLight
+        Me.TitleLabelBackground.Location = New Point(0, 0)
         Me.TitleLabelBackground.Name = "TitleLabelBackground"
-        Me.TitleLabelBackground.Size = New System.Drawing.Size(16, 16)
+        Me.TitleLabelBackground.Size = New Size(16, 16)
         Me.TitleLabelBackground.TabIndex = 14
         '
         'FocusIndicatorPanel
         '
-        Me.FocusIndicatorPanel.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.FocusIndicatorPanel.Location = New System.Drawing.Point(0, 0)
+        Me.FocusIndicatorPanel.Anchor = CType(((AnchorStyles.Top Or AnchorStyles.Bottom) _
+                    Or AnchorStyles.Left), AnchorStyles)
+        Me.FocusIndicatorPanel.Location = New Point(0, 0)
         Me.FocusIndicatorPanel.Name = "FocusIndicatorPanel"
-        Me.FocusIndicatorPanel.Size = New System.Drawing.Size(4, 38)
+        Me.FocusIndicatorPanel.Size = New Size(4, 38)
         Me.FocusIndicatorPanel.TabIndex = 16
         '
         'WindowManagerSplitter2
         '
-        Me.WindowManagerSplitter2.BackColor = System.Drawing.SystemColors.Control
-        Me.WindowManagerSplitter2.Cursor = System.Windows.Forms.Cursors.VSplit
-        Me.WindowManagerSplitter2.Location = New System.Drawing.Point(0, 4)
+        Me.WindowManagerSplitter2.BackColor = SystemColors.Control
+        Me.WindowManagerSplitter2.Cursor = Cursors.VSplit
+        Me.WindowManagerSplitter2.Location = New Point(0, 4)
         Me.WindowManagerSplitter2.Name = "WindowManagerSplitter2"
-        Me.WindowManagerSplitter2.Size = New System.Drawing.Size(4, 38)
-        Me.WindowManagerSplitter2.Style = MDIWindowManager.WindowManagerSplitter.SplitterStyle.Vertical
+        Me.WindowManagerSplitter2.Size = New Size(4, 38)
+        Me.WindowManagerSplitter2.Style = WindowManagerSplitter.SplitterStyle.Vertical
         Me.WindowManagerSplitter2.TabIndex = 12
         '
         'WindowManagerSplitter1
         '
-        Me.WindowManagerSplitter1.BackColor = System.Drawing.SystemColors.Control
-        Me.WindowManagerSplitter1.Cursor = System.Windows.Forms.Cursors.HSplit
-        Me.WindowManagerSplitter1.Dock = System.Windows.Forms.DockStyle.Top
-        Me.WindowManagerSplitter1.Location = New System.Drawing.Point(0, 0)
+        Me.WindowManagerSplitter1.BackColor = SystemColors.Control
+        Me.WindowManagerSplitter1.Cursor = Cursors.HSplit
+        Me.WindowManagerSplitter1.Dock = DockStyle.Top
+        Me.WindowManagerSplitter1.Location = New Point(0, 0)
         Me.WindowManagerSplitter1.Name = "WindowManagerSplitter1"
-        Me.WindowManagerSplitter1.Size = New System.Drawing.Size(444, 4)
-        Me.WindowManagerSplitter1.Style = MDIWindowManager.WindowManagerSplitter.SplitterStyle.Horizontal
+        Me.WindowManagerSplitter1.Size = New Size(444, 4)
+        Me.WindowManagerSplitter1.Style = WindowManagerSplitter.SplitterStyle.Horizontal
         Me.WindowManagerSplitter1.TabIndex = 10
         '
         'WindowManagerPanel
@@ -486,7 +487,7 @@ Public Class WindowManagerPanel
         Me.Controls.Add(Me.WindowButtonsPanel)
         Me.Controls.Add(Me.FocusIndicatorPanel)
         Me.Name = "WindowManagerPanel"
-        Me.Size = New System.Drawing.Size(444, 42)
+        Me.Size = New Size(444, 42)
         Me.TabStripsContainer.ResumeLayout(False)
         Me.TabStripsContainer.PerformLayout()
         Me.WindowButtonsPanel.ResumeLayout(False)
@@ -605,15 +606,15 @@ Public Class WindowManagerPanel
     ''' </summary>
     <Category("Layout"), _
     Description("Not supported."), _
-    Browsable(True), _
-    DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)> _
-    Public Overrides Property Anchor() As System.Windows.Forms.AnchorStyles
+    Browsable(True),
+    DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)>
+    Public Overrides Property Anchor() As AnchorStyles
 
         Get
             Return MyBase.Anchor
         End Get
 
-        Set(ByVal value As System.Windows.Forms.AnchorStyles)
+        Set(ByVal value As AnchorStyles)
             If Not value = AnchorStyles.None Then
                 Throw New System.Exception("Invalid property value. Anchor property is not supported or necessary.")
             Else
@@ -628,15 +629,15 @@ Public Class WindowManagerPanel
     ''' </summary>
     <Category("Layout"), _
     Description("Not supported (See Orientation property)."), _
-    Browsable(True), _
-    DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)> _
-    Public Overrides Property Dock() As System.Windows.Forms.DockStyle
+    Browsable(True),
+    DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)>
+    Public Overrides Property Dock() As DockStyle
 
         Get
             Return MyBase.Dock
         End Get
 
-        Set(ByVal value As System.Windows.Forms.DockStyle)
+        Set(ByVal value As DockStyle)
             If Not value = DockStyle.None Then
                 Throw New System.Exception("Invalid property value. Please use the 'Orientation' property instead.")
             Else
@@ -1626,7 +1627,7 @@ Public Class WindowManagerPanel
     ''' <summary>
     ''' Helper method to close a window as if done by the user in order to get the desired Reason code in the window's Unload events.
     ''' </summary>
-    Public Sub UserCloseWindow(ByVal window As System.Windows.Forms.IWin32Window)
+    Public Sub UserCloseWindow(ByVal window As IWin32Window)
 
         If Not window Is Nothing Then
             'using PostMessage allows the window to receive the proper CloseReason in its Close events
@@ -2184,7 +2185,7 @@ Public Class WindowManagerPanel
         If atMousePosition = False Then
             Me.TitleContextMenu.Show(Me.TitleLabel, New Point(0, Me.TitleLabel.ClientRectangle.Bottom))
         Else
-            Me.TitleContextMenu.Show(Me.TitleLabel, Me.TitlePanel.PointToClient(System.Windows.Forms.Cursor.Position))
+            Me.TitleContextMenu.Show(Me.TitleLabel, Me.TitlePanel.PointToClient(Cursor.Position))
         End If
 
     End Sub
@@ -2201,12 +2202,12 @@ Public Class WindowManagerPanel
 
     Private Sub UnloadWrappedWindowMenuItems()
 
-        For index As Integer = Me.TitleContextMenu.MenuItems.Count - 1 To 0 Step -1
-            Dim mnu As MenuItem = Me.TitleContextMenu.MenuItems.Item(index)
+        For index As Integer = Me.TitleContextMenu.Items.Count - 1 To 0 Step -1
+            Dim mnu As ToolStripMenuItem = Me.TitleContextMenu.Items.Item(index)
 
             If TypeOf mnu Is WrappedWindowMenuItem Then
                 RemoveHandler mnu.Click, AddressOf HandleWrappedWindowMenuItemClick
-                Me.TitleContextMenu.MenuItems.Remove(mnu)
+                Me.TitleContextMenu.Items.Remove(mnu)
                 mnu.Dispose()
             End If
         Next index
@@ -2250,7 +2251,7 @@ Public Class WindowManagerPanel
     ''' <summary>
     ''' Display a dialog that displays all the windows in all panels.
     ''' </summary>
-    Public Function ShowAllWindowsDialog(ByVal owner As System.Windows.Forms.IWin32Window) As DialogResult
+    Public Function ShowAllWindowsDialog(ByVal owner As IWin32Window) As DialogResult
 
         Dim frm As New WindowsForm
 
@@ -2292,7 +2293,7 @@ Public Class WindowManagerPanel
     ''' <summary>
     ''' Retrieve an array of menu items representing all open windows.
     ''' </summary>
-    Public Function GetAllWindowsMenu(Optional ByVal includeTopNineAccelerators As Boolean = False) As MenuItem()
+    Public Function GetAllWindowsMenu(Optional ByVal includeTopNineAccelerators As Boolean = False) As ToolStripMenuItem()
 
         Return GetAllWindowsMenu(0, includeTopNineAccelerators)
 
@@ -2301,7 +2302,7 @@ Public Class WindowManagerPanel
     ''' <summary>
     ''' Retrieve an array of menu items representing all open windows.
     ''' </summary>
-    Public Function GetAllWindowsMenu(ByVal limit As Integer, Optional ByVal includeTopNineAccelerators As Boolean = False) As MenuItem()
+    Public Function GetAllWindowsMenu(ByVal limit As Integer, Optional ByVal includeTopNineAccelerators As Boolean = False) As ToolStripMenuItem()
 
         Dim menuItems() As WrappedWindowMenuItem
         Dim wrappedWindows As WrappedWindowCollection = GetAllWindows()
@@ -2321,7 +2322,7 @@ Public Class WindowManagerPanel
                 Dim mnu As New WrappedWindowMenuItem
 
                 If Not activeWrappedWindow Is Nothing AndAlso activeWrappedWindow Is wrappedWindow Then
-                    mnu.RadioCheck = True
+                    mnu.CheckState = True
                     mnu.Checked = True
                 End If
 
@@ -2994,7 +2995,7 @@ Public Class WindowManagerPanel
             Dim mdiClientControl As MdiClient = GetMDIClient()
 
             If Not mdiClientControl Is Nothing Then
-                Dim mdiClientAdjustedBounds As Rectangle = ParentForm.RectangleToClient(mdiClientControl.RectangleToScreen(mdiClientControl.ClientRectangle))
+                Dim mdiClientAdjustedBounds As Rectangle = Parent.RectangleToClient(mdiClientControl.RectangleToScreen(mdiClientControl.ClientRectangle))
 
                 Me.Top = mdiClientAdjustedBounds.Top
                 Me.Width = CInt(mdiClientAdjustedBounds.Width / 4)
@@ -3003,7 +3004,7 @@ Public Class WindowManagerPanel
             Dim mdiClientControl As MdiClient = GetMDIClient()
 
             If Not mdiClientControl Is Nothing Then
-                Dim mdiClientAdjustedBounds As Rectangle = ParentForm.RectangleToClient(mdiClientControl.RectangleToScreen(mdiClientControl.ClientRectangle))
+                Dim mdiClientAdjustedBounds As Rectangle = Parent.RectangleToClient(mdiClientControl.RectangleToScreen(mdiClientControl.ClientRectangle))
 
                 'Dim tempVal As Boolean = m_allowUserVerticalRepositioning
 
@@ -3232,7 +3233,7 @@ Public Class WindowManagerPanel
 
 #Region "Event Handlers"
 
-    Private Sub WindowManagerPanel_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles MyBase.Load
+    Private Sub WindowManagerPanel_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles MyBase.Opened
 
         m_isLoaded = True
 
@@ -3511,7 +3512,7 @@ Public Class WindowManagerPanel
     Private Sub HandleWindowTabStripShowWindowMenuRequested(ByVal sender As Object, ByVal e As System.EventArgs)
 
         If Not (m_disableTileAction AndAlso m_disableHTileAction AndAlso m_disablePopoutAction AndAlso m_disableCloseAction) Then
-            WindowContextMenu.Show(Me, Me.PointToClient(System.Windows.Forms.Cursor.Position))
+            WindowContextMenu.Show(Me, Me.PointToClient(Cursor.Position))
         End If
 
     End Sub
@@ -3786,7 +3787,7 @@ Public Class WindowManagerPanel
 
     End Sub
 
-    Private Sub HandleParentFormClosed(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosedEventArgs)
+    Private Sub HandleParentFormClosed(ByVal sender As Object, ByVal e As FormClosedEventArgs)
 
         CleanUp()
 
@@ -4114,12 +4115,12 @@ Public Class WindowManagerPanel
 
     End Sub
 
-    Private Sub WindowButtons_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles PopoutWindowButton.MouseDown, CloseWindowButton.MouseDown, TileWindowButton.MouseDown, HTileButton.MouseDown
+    Private Sub WindowButtons_MouseDown(ByVal sender As Object, ByVal e As MouseEventArgs) Handles PopoutWindowButton.MouseDown, CloseWindowButton.MouseDown, TileWindowButton.MouseDown, HTileButton.MouseDown
 
         If e.Button = Windows.Forms.MouseButtons.Right Then
             Dim ctl As Control = CType(sender, Control)
 
-            WindowButtonsContextMenu.Show(ctl, ctl.PointToClient(System.Windows.Forms.Cursor.Position))
+            WindowButtonsContextMenu.Show(ctl, ctl.PointToClient(Cursor.Position))
         End If
 
     End Sub
@@ -4156,7 +4157,7 @@ Public Class WindowManagerPanel
 
     End Sub
 
-    Private Sub Title_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles TitleLabel.MouseDown, TitleLabelBackground.MouseDown, TitleLabelMenuGlyph.MouseDown
+    Private Sub Title_MouseDown(ByVal sender As Object, ByVal e As MouseEventArgs) Handles TitleLabel.MouseDown, TitleLabelBackground.MouseDown, TitleLabelMenuGlyph.MouseDown
 
         If e.Button = Windows.Forms.MouseButtons.Left Then
             ShowTitleMenu()
@@ -4181,7 +4182,7 @@ Public Class WindowManagerPanel
 
     End Sub
 
-    Private Sub TitlePanel_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles TitlePanel.MouseDown
+    Private Sub TitlePanel_MouseDown(ByVal sender As Object, ByVal e As MouseEventArgs) Handles TitlePanel.MouseDown
 
         If e.Button = Windows.Forms.MouseButtons.Right Then
             ShowTitleMenu(atMousePosition:=True)
@@ -4223,13 +4224,13 @@ Public Class WindowManagerPanel
 
     End Sub
 
-    Private Sub WindowButtonsContextMenu_Popup(ByVal sender As Object, ByVal e As System.EventArgs) Handles WindowButtonsContextMenu.Popup
+    Private Sub WindowButtonsContextMenu_Popup(ByVal sender As Object, ByVal e As System.EventArgs) Handles WindowButtonsContextMenu.Opened
 
         Me.WindowButtonsToggleWindowButtonsMenuItem.Checked = Not Me.ShowLayoutButtons
 
     End Sub
 
-    Private Sub WindowContextMenu_Popup(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles WindowContextMenu.Popup
+    Private Sub WindowContextMenu_Popup(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles WindowContextMenu.Opened
 
         Me.WindowTileWindowMenuItem.Enabled = Not m_disableTileAction
         Me.WindowHTileMenuItem.Enabled = Not m_disableHTileAction
@@ -4256,7 +4257,7 @@ Public Class WindowManagerPanel
 
     End Sub
 
-    Private Sub TitleContextMenu_Popup(ByVal sender As Object, ByVal e As System.EventArgs) Handles TitleContextMenu.Popup
+    Private Sub TitleContextMenu_Popup(ByVal sender As Object, ByVal e As System.EventArgs) Handles TitleContextMenu.Opened
 
         Me.TitleOptionsTileWindowMenuItem.Enabled = Not m_disableTileAction
         Me.TitleOptionsHTileMenuItem.Enabled = Not m_disableHTileAction
@@ -4289,7 +4290,7 @@ Public Class WindowManagerPanel
             For Each wrappedWindow As WrappedWindow In windowTabStrip.Items
                 Dim mnu As New WrappedWindowMenuItem
 
-                mnu.RadioCheck = True
+                mnu.CheckState = True
                 mnu.WrappedWindow = wrappedWindow
                 AddHandler mnu.Click, AddressOf HandleWrappedWindowMenuItemClick
 
@@ -4299,7 +4300,7 @@ Public Class WindowManagerPanel
                     End If
                 End If
 
-                Me.TitleContextMenu.MenuItems.Add(mnu)
+                Me.TitleContextMenu.Items.Add(mnu)
                 mnu.Visible = True
 
                 count += 1

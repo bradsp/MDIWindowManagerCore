@@ -3,7 +3,7 @@
 ''' </summary>
 ''' <remarks></remarks>
 Public Class WrappedWindowMenuItem
-    Inherits MenuItem
+    Inherits ToolStripMenuItem
 
     Private WithEvents m_wrappedWindow As WrappedWindow
     Private m_textPrefix As String = String.Empty

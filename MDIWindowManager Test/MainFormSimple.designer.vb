@@ -19,100 +19,83 @@ Partial Class MainFormSimple
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container
-        Me.MainMenu1 = New System.Windows.Forms.MainMenu(Me.components)
-        Me.FileMenuItem = New System.Windows.Forms.MenuItem
-        Me.FileExitMenuItem = New System.Windows.Forms.MenuItem
-        Me.SampleMenuItem = New System.Windows.Forms.MenuItem
-        Me.SampleShowAdvMenuItem = New System.Windows.Forms.MenuItem
-        Me.SampleShowAltTabsMenuItem = New System.Windows.Forms.MenuItem
-        Me.SampleShowCustomPaintMenuItem = New System.Windows.Forms.MenuItem
-        Me.WindowManagerPanel1 = New MDIWindowManager.WindowManagerPanel
-        Me.SuspendLayout()
-        '
-        'MainMenu1
-        '
-        Me.MainMenu1.MenuItems.AddRange(New System.Windows.Forms.MenuItem() {Me.FileMenuItem, Me.SampleMenuItem})
-        '
-        'FileMenuItem
-        '
-        Me.FileMenuItem.Index = 0
-        Me.FileMenuItem.MenuItems.AddRange(New System.Windows.Forms.MenuItem() {Me.FileExitMenuItem})
-        Me.FileMenuItem.Text = "&File"
-        '
-        'FileExitMenuItem
-        '
-        Me.FileExitMenuItem.Index = 0
-        Me.FileExitMenuItem.Text = "E&xit"
-        '
-        'SampleMenuItem
-        '
-        Me.SampleMenuItem.Index = 1
-        Me.SampleMenuItem.MenuItems.AddRange(New System.Windows.Forms.MenuItem() {Me.SampleShowAdvMenuItem, Me.SampleShowAltTabsMenuItem, Me.SampleShowCustomPaintMenuItem})
-        Me.SampleMenuItem.Text = "&Sample"
-        '
-        'SampleShowAdvMenuItem
-        '
-        Me.SampleShowAdvMenuItem.Index = 0
-        Me.SampleShowAdvMenuItem.Text = "Show Advanced Sample..."
-        '
-        'SampleShowAltTabsMenuItem
-        '
-        Me.SampleShowAltTabsMenuItem.Index = 1
-        Me.SampleShowAltTabsMenuItem.Text = "Show Alternate Tabs Sample..."
-        '
-        'SampleShowCustomPaintMenuItem
-        '
-        Me.SampleShowCustomPaintMenuItem.Index = 2
-        Me.SampleShowCustomPaintMenuItem.Text = "Show Custom Paint Sample..."
-        '
-        'WindowManagerPanel1
-        '
-        Me.WindowManagerPanel1.AllowUserVerticalRepositioning = False
-        Me.WindowManagerPanel1.AutoDetectMdiChildWindows = True
-        Me.WindowManagerPanel1.AutoHide = False
-        Me.WindowManagerPanel1.ButtonRenderMode = MDIWindowManager.ButtonRenderMode.Standard
-        Me.WindowManagerPanel1.DisableCloseAction = False
-        Me.WindowManagerPanel1.DisableHTileAction = False
-        Me.WindowManagerPanel1.DisablePopoutAction = False
-        Me.WindowManagerPanel1.DisableTileAction = False
-        Me.WindowManagerPanel1.EnableTabPaintEvent = False
-        Me.WindowManagerPanel1.Location = New System.Drawing.Point(2, 23)
-        Me.WindowManagerPanel1.MinMode = False
-        Me.WindowManagerPanel1.Name = "WindowManagerPanel1"
-        Me.WindowManagerPanel1.Orientation = MDIWindowManager.WindowManagerOrientation.Top
-        Me.WindowManagerPanel1.ShowCloseButton = True
-        Me.WindowManagerPanel1.ShowIcons = True
-        Me.WindowManagerPanel1.ShowLayoutButtons = True
-        Me.WindowManagerPanel1.ShowTitle = False
-        Me.WindowManagerPanel1.Size = New System.Drawing.Size(653, 26)
-        Me.WindowManagerPanel1.Style = MDIWindowManager.TabStyle.AngledHiliteTabs
-        Me.WindowManagerPanel1.TabIndex = 1
-        Me.WindowManagerPanel1.TabRenderMode = MDIWindowManager.TabsProvider.Standard
-        Me.WindowManagerPanel1.Text = "WindowManagerPanel1"
-        Me.WindowManagerPanel1.TitleBackColor = System.Drawing.SystemColors.ControlDark
-        Me.WindowManagerPanel1.TitleForeColor = System.Drawing.SystemColors.ControlLightLight
-        '
-        'MainFormSimple
-        '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
-        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(657, 441)
-        Me.Controls.Add(Me.WindowManagerPanel1)
-        Me.IsMdiContainer = True
-        Me.KeyPreview = True
-        Me.Menu = Me.MainMenu1
-        Me.Name = "MainFormSimple"
-        Me.Text = "MDIWindowManager Sample (Simple)"
-        Me.ResumeLayout(False)
-
+        MainMenu1 = New MenuStrip()
+        FileMenuItem = New ToolStripMenuItem()
+        FileExitMenuItem = New ToolStripMenuItem()
+        SampleMenuItem = New ToolStripMenuItem()
+        SampleShowAdvMenuItem = New ToolStripMenuItem()
+        SampleShowAltTabsMenuItem = New ToolStripMenuItem()
+        SampleShowCustomPaintMenuItem = New ToolStripMenuItem()
+        MainMenu1.SuspendLayout()
+        SuspendLayout()
+        ' 
+        ' MainMenu1
+        ' 
+        MainMenu1.Items.AddRange(New ToolStripItem() {FileMenuItem, SampleMenuItem})
+        MainMenu1.Location = New Point(0, 0)
+        MainMenu1.Name = "MainMenu1"
+        MainMenu1.Size = New Size(200, 24)
+        MainMenu1.TabIndex = 0
+        ' 
+        ' FileMenuItem
+        ' 
+        FileMenuItem.DropDownItems.AddRange(New ToolStripItem() {FileExitMenuItem})
+        FileMenuItem.Name = "FileMenuItem"
+        FileMenuItem.Size = New Size(37, 20)
+        FileMenuItem.Text = "&File"
+        ' 
+        ' FileExitMenuItem
+        ' 
+        FileExitMenuItem.Name = "FileExitMenuItem"
+        FileExitMenuItem.Size = New Size(93, 22)
+        FileExitMenuItem.Text = "E&xit"
+        ' 
+        ' SampleMenuItem
+        ' 
+        SampleMenuItem.DropDownItems.AddRange(New ToolStripItem() {SampleShowAdvMenuItem, SampleShowAltTabsMenuItem, SampleShowCustomPaintMenuItem})
+        SampleMenuItem.Name = "SampleMenuItem"
+        SampleMenuItem.Size = New Size(58, 20)
+        SampleMenuItem.Text = "&Sample"
+        ' 
+        ' SampleShowAdvMenuItem
+        ' 
+        SampleShowAdvMenuItem.Name = "SampleShowAdvMenuItem"
+        SampleShowAdvMenuItem.Size = New Size(231, 22)
+        SampleShowAdvMenuItem.Text = "Show Advanced Sample..."
+        ' 
+        ' SampleShowAltTabsMenuItem
+        ' 
+        SampleShowAltTabsMenuItem.Name = "SampleShowAltTabsMenuItem"
+        SampleShowAltTabsMenuItem.Size = New Size(231, 22)
+        SampleShowAltTabsMenuItem.Text = "Show Alternate Tabs Sample..."
+        ' 
+        ' SampleShowCustomPaintMenuItem
+        ' 
+        SampleShowCustomPaintMenuItem.Name = "SampleShowCustomPaintMenuItem"
+        SampleShowCustomPaintMenuItem.Size = New Size(231, 22)
+        SampleShowCustomPaintMenuItem.Text = "Show Custom Paint Sample..."
+        ' 
+        ' MainFormSimple
+        ' 
+        AutoScaleDimensions = New SizeF(7.0F, 15.0F)
+        AutoScaleMode = AutoScaleMode.Font
+        ClientSize = New Size(766, 509)
+        IsMdiContainer = True
+        KeyPreview = True
+        MainMenuStrip = MainMenu1
+        Margin = New Padding(4, 3, 4, 3)
+        Name = "MainFormSimple"
+        Text = "MDIWindowManager Sample (Simple)"
+        MainMenu1.ResumeLayout(False)
+        MainMenu1.PerformLayout()
+        ResumeLayout(False)
     End Sub
-    Friend WithEvents MainMenu1 As System.Windows.Forms.MainMenu
-    Friend WithEvents FileMenuItem As System.Windows.Forms.MenuItem
-    Friend WithEvents FileExitMenuItem As System.Windows.Forms.MenuItem
-    Friend WithEvents SampleMenuItem As System.Windows.Forms.MenuItem
-    Friend WithEvents SampleShowAdvMenuItem As System.Windows.Forms.MenuItem
+    Friend WithEvents MainMenu1 As MenuStrip
+    Friend WithEvents FileMenuItem As ToolStripMenuItem
+    Friend WithEvents FileExitMenuItem As ToolStripMenuItem
+    Friend WithEvents SampleMenuItem As ToolStripMenuItem
+    Friend WithEvents SampleShowAdvMenuItem As ToolStripMenuItem
     Friend WithEvents WindowManagerPanel1 As MDIWindowManager.WindowManagerPanel
-    Friend WithEvents SampleShowAltTabsMenuItem As System.Windows.Forms.MenuItem
-    Friend WithEvents SampleShowCustomPaintMenuItem As System.Windows.Forms.MenuItem
+    Friend WithEvents SampleShowAltTabsMenuItem As ToolStripMenuItem
+    Friend WithEvents SampleShowCustomPaintMenuItem As ToolStripMenuItem
 End Class

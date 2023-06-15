@@ -21,9 +21,9 @@ Partial Class StandardTabsProvider
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container
-        Me.DrawAreaPanel = New MDIWindowManager.DrawPanel
-        Me.ScrollLeftButton = New MDIWindowManager.WindowManagerButton
-        Me.ScrollRightButton = New MDIWindowManager.WindowManagerButton
+        Me.DrawAreaPanel = New DrawPanel
+        Me.ScrollLeftButton = New WindowManagerButton
+        Me.ScrollRightButton = New WindowManagerButton
         Me.FocusKludgeButton = New System.Windows.Forms.Button
         Me.ScrollTimer = New System.Windows.Forms.Timer(Me.components)
         Me.SuspendLayout()
@@ -47,7 +47,7 @@ Partial Class StandardTabsProvider
         Me.ScrollLeftButton.Font = New System.Drawing.Font("Marlett", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(2, Byte))
         Me.ScrollLeftButton.Location = New System.Drawing.Point(372, 0)
         Me.ScrollLeftButton.Name = "ScrollLeftButton"
-        Me.ScrollLeftButton.RenderMode = MDIWindowManager.WindowManagerButton.WindowManagerButtonRenderMode.RollOverClassic
+        Me.ScrollLeftButton.RenderMode = WindowManagerButton.WindowManagerButtonRenderMode.RollOverClassic
         Me.ScrollLeftButton.Size = New System.Drawing.Size(20, 20)
         Me.ScrollLeftButton.TabIndex = 5
         Me.ScrollLeftButton.Text = "3"
@@ -61,7 +61,7 @@ Partial Class StandardTabsProvider
         Me.ScrollRightButton.Font = New System.Drawing.Font("Marlett", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(2, Byte))
         Me.ScrollRightButton.Location = New System.Drawing.Point(392, 0)
         Me.ScrollRightButton.Name = "ScrollRightButton"
-        Me.ScrollRightButton.RenderMode = MDIWindowManager.WindowManagerButton.WindowManagerButtonRenderMode.RollOverClassic
+        Me.ScrollRightButton.RenderMode = WindowManagerButton.WindowManagerButtonRenderMode.RollOverClassic
         Me.ScrollRightButton.Size = New System.Drawing.Size(20, 20)
         Me.ScrollRightButton.TabIndex = 6
         Me.ScrollRightButton.Text = "4"
@@ -89,7 +89,7 @@ Partial Class StandardTabsProvider
         Me.ResumeLayout(False)
 
     End Sub
-    Friend WithEvents DrawAreaPanel As MDIWindowManager.DrawPanel
+    Friend WithEvents DrawAreaPanel As DrawPanel
     Friend WithEvents ScrollLeftButton As WindowManagerButton
     Friend WithEvents ScrollRightButton As WindowManagerButton
     Friend WithEvents FocusKludgeButton As System.Windows.Forms.Button

@@ -596,13 +596,13 @@ Public Class StandardTabsProvider
 
     End Sub
 
-    Private Sub DrawAreaPanel_Paint(ByVal sender As Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles DrawAreaPanel.Paint
+    Private Sub DrawAreaPanel_Paint(ByVal sender As Object, ByVal e As PaintEventArgs) Handles DrawAreaPanel.Paint
 
         DrawTabs(e.Graphics)
 
     End Sub
 
-    Private Sub DrawAreaPanel_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles DrawAreaPanel.MouseDown
+    Private Sub DrawAreaPanel_MouseDown(ByVal sender As Object, ByVal e As MouseEventArgs) Handles DrawAreaPanel.MouseDown
 
         HideToolTip(Me)
 

@@ -6,7 +6,8 @@ Imports System.ComponentModel
 ''' <remarks>Facilitates vertical "tiling." Used by WindowManagerPanel to present multiple sets of tabbed windows.</remarks>
 <ToolboxItemAttribute(False)> _
 Public Class WindowTabStrip
-    Inherits System.Windows.Forms.UserControl
+    Inherits Windows.Forms.UserControl
+
 
     Public Event BeginDragItem As EventHandler(Of WrappedWindowItemEventArgs)
     Friend Event ItemDropped As EventHandler(Of DroppedWrappedWindowEventArgs)

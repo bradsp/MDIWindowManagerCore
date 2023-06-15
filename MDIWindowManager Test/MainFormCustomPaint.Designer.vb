@@ -20,25 +20,24 @@ Partial Class MainFormCustomPaint
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container
-        Me.MainMenu1 = New System.Windows.Forms.MainMenu(Me.components)
-        Me.FileMenuItem = New System.Windows.Forms.MenuItem
-        Me.FileExitMenuItem = New System.Windows.Forms.MenuItem
+        Me.MainMenu1 = New System.Windows.Forms.MenuStrip
+        Me.MainMenu1.Items.AddRange(Me.components)
+        Me.FileMenuItem = New System.Windows.Forms.ToolStripMenuItem
+        Me.FileExitMenuItem = New System.Windows.Forms.ToolStripMenuItem
         Me.WindowManagerPanel1 = New MDIWindowManager.WindowManagerPanel
         Me.SuspendLayout()
         '
         'MainMenu1
         '
-        Me.MainMenu1.MenuItems.AddRange(New System.Windows.Forms.MenuItem() {Me.FileMenuItem})
+        Me.MainMenu1.Items.AddRange(New System.Windows.Forms.ToolStripMenuItem() {Me.FileMenuItem})
         '
         'FileMenuItem
         '
-        Me.FileMenuItem.Index = 0
-        Me.FileMenuItem.MenuItems.AddRange(New System.Windows.Forms.MenuItem() {Me.FileExitMenuItem})
+        Me.FileMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripMenuItem() {Me.FileExitMenuItem})
         Me.FileMenuItem.Text = "&File"
         '
         'FileExitMenuItem
         '
-        Me.FileExitMenuItem.Index = 0
         Me.FileExitMenuItem.Text = "E&xit"
         '
         'WindowManagerPanel1
@@ -71,14 +70,14 @@ Partial Class MainFormCustomPaint
         Me.ClientSize = New System.Drawing.Size(657, 441)
         Me.Controls.Add(Me.WindowManagerPanel1)
         Me.IsMdiContainer = True
-        Me.Menu = Me.MainMenu1
+        Me.MainMenuStrip = Me.MainMenu1
         Me.Name = "MainFormCustomPaint"
         Me.Text = "MDIWindowManager Sample (Custom Paint)"
         Me.ResumeLayout(False)
 
     End Sub
     Friend WithEvents WindowManagerPanel1 As MDIWindowManager.WindowManagerPanel
-    Friend WithEvents MainMenu1 As System.Windows.Forms.MainMenu
-    Friend WithEvents FileMenuItem As System.Windows.Forms.MenuItem
-    Friend WithEvents FileExitMenuItem As System.Windows.Forms.MenuItem
+    Friend WithEvents MainMenu1 As System.Windows.Forms.MenuStrip
+    Friend WithEvents FileMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents FileExitMenuItem As System.Windows.Forms.ToolStripMenuItem
 End Class
