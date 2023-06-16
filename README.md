@@ -7,6 +7,8 @@ Not a beta.
 Very stable at this point and already in use in several in-house business applications.
 Fully Open Source, not a commercial pre-release.
 
+This repository is a port of the original MDIWindowManager to work with .NET 6. 
+
 Mature and complete features:
 
     Completely transparent and non-intrusive. There is no complex "framework" locking you into a particular technology... windows do not need to derive from some base class and no code changes need to be done on either the child windows or in MDI child loading code.
