@@ -820,7 +820,7 @@ Friend Class WindowManager
                 Dim mnu As New WrappedWindowMenuItem
 
                 If Not activeWrappedWindow Is Nothing AndAlso activeWrappedWindow Is wrappedWindow Then
-                    mnu.CheckState = True
+                    mnu.CheckState = CheckState.Checked
                     mnu.Checked = True
                 End If
 

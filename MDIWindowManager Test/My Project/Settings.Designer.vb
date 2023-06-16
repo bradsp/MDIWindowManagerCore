@@ -66,7 +66,7 @@ Namespace My
         <Global.System.ComponentModel.Design.HelpKeywordAttribute("My.Settings")>
         Friend ReadOnly Property Settings() As Global.MDIWindowManager_Test.My.MySettings
             Get
-                Return Global.MDIWindowManager_Test.MDIWindowManager_Test.My_Project.My.MySettings.Default
+                Return Global.MDIWindowManager_Test.My.MySettings.Default
             End Get
         End Property
     End Module

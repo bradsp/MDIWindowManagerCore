@@ -109,8 +109,9 @@ Public Class MainFormAdvanced
         Me.components = New System.ComponentModel.Container
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(MainFormAdvanced))
         Me.StatusBar1 = New StatusStrip
-        Me.MainMenu1 = New MenuStrip
-        Me.MainMenu1.Items.AddRange(components)
+        Me.MainMenu1 = New MenuStrip With {
+            .AllowMerge = True
+        }
         Me.FileMenuItem = New ToolStripMenuItem
         Me.FileNewMenuItem = New ToolStripMenuItem
         Me.FileOpenMenuItem = New ToolStripMenuItem
@@ -218,22 +219,22 @@ Public Class MainFormAdvanced
         '
         'ViewSimpleMenuItem
         '
-        Me.ViewSimpleMenuItem.CheckState = True
+        Me.ViewSimpleMenuItem.CheckState = CheckState.Checked
         Me.ViewSimpleMenuItem.Text = "Simple"
         '
         'ViewAdvRightMenuItem
         '
-        Me.ViewAdvRightMenuItem.CheckState = True
+        Me.ViewAdvRightMenuItem.CheckState = CheckState.Checked
         Me.ViewAdvRightMenuItem.Text = "Advanced View (Right)"
         '
         'ViewAdvBottomMenuItem
         '
-        Me.ViewAdvBottomMenuItem.CheckState = True
+        Me.ViewAdvBottomMenuItem.CheckState = CheckState.Checked
         Me.ViewAdvBottomMenuItem.Text = "Advanced View (Bottom)"
         '
         'ViewAdvLeftMenuItem
         '
-        Me.ViewAdvLeftMenuItem.CheckState = True
+        Me.ViewAdvLeftMenuItem.CheckState = CheckState.Checked
         Me.ViewAdvLeftMenuItem.Text = "Advanced View (Left)"
         '
         'ViewMenuSep1
@@ -252,22 +253,22 @@ Public Class MainFormAdvanced
         '
         'ViewTabStylesClassicMenuItem
         '
-        Me.ViewTabStylesClassicMenuItem.CheckState = True
+        Me.ViewTabStylesClassicMenuItem.CheckState = CheckState.Checked
         Me.ViewTabStylesClassicMenuItem.Text = "Classic"
         '
         'ViewTabStylesModernMenuItem
         '
-        Me.ViewTabStylesModernMenuItem.CheckState = True
+        Me.ViewTabStylesModernMenuItem.CheckState = CheckState.Checked
         Me.ViewTabStylesModernMenuItem.Text = "Modern"
         '
         'ViewTabStylesFlatHiliteMenuItem
         '
-        Me.ViewTabStylesFlatHiliteMenuItem.CheckState = True
+        Me.ViewTabStylesFlatHiliteMenuItem.CheckState = CheckState.Checked
         Me.ViewTabStylesFlatHiliteMenuItem.Text = "FlatHilite"
         '
         'ViewTabStylesAngledHiliteMenuItem
         '
-        Me.ViewTabStylesAngledHiliteMenuItem.CheckState = True
+        Me.ViewTabStylesAngledHiliteMenuItem.CheckState = CheckState.Checked
         Me.ViewTabStylesAngledHiliteMenuItem.Text = "AngledHilite"
         '
         'ViewTabStyleMenuItemSep1
@@ -285,17 +286,17 @@ Public Class MainFormAdvanced
         '
         'ViewButtonStylesStandardMenuItem
         '
-        Me.ViewButtonStylesStandardMenuItem.CheckState = True
+        Me.ViewButtonStylesStandardMenuItem.CheckState = CheckState.Checked
         Me.ViewButtonStylesStandardMenuItem.Text = "Standard"
         '
         'ViewButtonStylesSystemMenuItem
         '
-        Me.ViewButtonStylesSystemMenuItem.CheckState = True
+        Me.ViewButtonStylesSystemMenuItem.CheckState = CheckState.Checked
         Me.ViewButtonStylesSystemMenuItem.Text = "System"
         '
         'ViewButtonStylesProMenuItem
         '
-        Me.ViewButtonStylesProMenuItem.CheckState = True
+        Me.ViewButtonStylesProMenuItem.CheckState = CheckState.Checked
         Me.ViewButtonStylesProMenuItem.Text = "Professional"
         '
         'ViewMenuItemSep3
@@ -733,7 +734,7 @@ Public Class MainFormAdvanced
 
         dlg.Filter = "Text Files|*.txt|All Files|*.*"
 
-        If dlg.ShowDialog(Me) = Windows.Forms.DialogResult.OK Then
+        If dlg.ShowDialog(Me) = System.Windows.Forms.DialogResult.OK Then
             Dim frm As New ChildForm2
 
             AddChildWindow(frm)
@@ -1084,7 +1085,7 @@ Public Class MainFormAdvanced
                     If Me.WindowManagerPanel1.AuxiliaryWindow Is Nothing Then
                         Dim frm As New ChildAuxForm
 
-                        frm.FormBorderStyle = Windows.Forms.FormBorderStyle.None
+                        frm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
 
                         Me.WindowManagerPanel1.AuxiliaryWindow = frm
 

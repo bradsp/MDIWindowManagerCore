@@ -21,7 +21,7 @@ Partial Class MainFormCustomPaint
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container
         Me.MainMenu1 = New System.Windows.Forms.MenuStrip
-        Me.MainMenu1.Items.AddRange(Me.components)
+        Me.MainMenu1.AllowMerge = True
         Me.FileMenuItem = New System.Windows.Forms.ToolStripMenuItem
         Me.FileExitMenuItem = New System.Windows.Forms.ToolStripMenuItem
         Me.WindowManagerPanel1 = New MDIWindowManager.WindowManagerPanel

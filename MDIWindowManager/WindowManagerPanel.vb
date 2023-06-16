@@ -9,7 +9,7 @@ Imports System.Collections.Generic
 Description("Provides Tabbed MDI management for MDI Parent windows."), _
 ToolboxBitmap(GetType(WindowManagerPanel))> _
 Public Class WindowManagerPanel
-    Inherits ContextMenuStrip
+    Inherits UserControl
 
 
 #Region "Events"
@@ -2322,7 +2322,7 @@ Public Class WindowManagerPanel
                 Dim mnu As New WrappedWindowMenuItem
 
                 If Not activeWrappedWindow Is Nothing AndAlso activeWrappedWindow Is wrappedWindow Then
-                    mnu.CheckState = True
+                    mnu.CheckState = CheckState.Checked
                     mnu.Checked = True
                 End If
 
@@ -3233,7 +3233,7 @@ Public Class WindowManagerPanel
 
 #Region "Event Handlers"
 
-    Private Sub WindowManagerPanel_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles MyBase.Opened
+    Private Sub WindowManagerPanel_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles MyBase.Load
 
         m_isLoaded = True
 
@@ -4290,7 +4290,7 @@ Public Class WindowManagerPanel
             For Each wrappedWindow As WrappedWindow In windowTabStrip.Items
                 Dim mnu As New WrappedWindowMenuItem
 
-                mnu.CheckState = True
+                mnu.CheckState = CheckState.Checked
                 mnu.WrappedWindow = wrappedWindow
                 AddHandler mnu.Click, AddressOf HandleWrappedWindowMenuItemClick
 

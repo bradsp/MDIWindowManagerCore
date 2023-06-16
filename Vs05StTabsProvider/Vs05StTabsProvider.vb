@@ -1,4 +1,6 @@
 Imports System.ComponentModel
+Imports System.Windows.Forms
+
 
 ''' <summary>
 ''' Alternative TabsProvider that uses mimics the VS2005 tabs.
@@ -184,7 +186,7 @@ Public Class Vs05StTabsProvider
         m_mouseDownStartPoint = e.Location
 
         'right-click- select the tab at the mouse location and request that the WindowManagerPanel menu be shown
-        If e.Button = Windows.Forms.MouseButtons.Right Then
+        If e.Button = System.Windows.Forms.MouseButtons.Right Then
             SetSelectedTabItemByPoint(e.Location)
             Me.FaTabStrip1.Refresh()
             If Not Me.SelectedWrappedWindowItem Is Nothing Then
@@ -196,7 +198,7 @@ Public Class Vs05StTabsProvider
 
     Private Sub FaTabStrip1_MouseMove(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles FaTabStrip1.MouseMove
 
-        If e.Button = Windows.Forms.MouseButtons.Left AndAlso Not Me.SelectedWrappedWindowItem Is Nothing Then
+        If e.Button = System.Windows.Forms.MouseButtons.Left AndAlso Not Me.SelectedWrappedWindowItem Is Nothing Then
             If Math.Abs(e.Location.X - m_mouseDownStartPoint.X) >= 3 OrElse Math.Abs(e.Location.Y - m_mouseDownStartPoint.Y) >= 3 Then
                 OnBeginDragTabItem(New MDIWindowManager.WrappedWindowItemEventArgs(Me.SelectedWrappedWindowItem))
             End If

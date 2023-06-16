@@ -181,7 +181,7 @@ Public Class TabsProviderBase
         For Each wrappedWindow As WrappedWindow In m_wrappedWindowItems
             Dim mnu As New WrappedWindowMenuItem
 
-            mnu.CheckState = True
+            mnu.CheckState = CheckState.Checked
             mnu.WrappedWindow = wrappedWindow
             AddHandler mnu.Click, AddressOf HandleWrappedWindowMenuItemClick
 
